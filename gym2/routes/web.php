@@ -58,4 +58,5 @@ Route::get('/profile', [ClientController::class, 'showProfileForm'])->name('clie
 //static pages 
 
 Route::get('/about', [StaticController::class, 'showAbout'])->name('about');
+Route::get('/contact', [StaticController::class, 'showContact'])->name('showContact');
 

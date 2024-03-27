@@ -11,4 +11,10 @@ class StaticController extends Controller
        
         return view('about');
     }
+
+    public function showContact()
+    {
+       
+        return view('contact');
+    }
 }

@@ -37,6 +37,9 @@
                         <div class="pt-2">Gallery</div>
                         <div class="pt-2"> <a href="{{ route('login') }}" class="p-2">Login</a></div>
                         <div class="pt-2"><a href="{{ route('register') }}" class="p-2">Register</a></div>
+                        <div class="pt-2"><a href="{{ route('showContact') }}" class="p-2">Contact</a></div>
+
+                        
   
                     @endguest
 
