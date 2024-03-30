@@ -130,7 +130,7 @@
 
                     <div class="px-4 pb-2 pt-4">
                         <button type="submit"
-                            class="uppercase block w-full p-4 text-lg rounded-full bg-red-800 hover:bg-red-600 focus:outline-none">
+                            class="uppercase block w-full p-4 text-lg rounded-full bg-red-700 hover:bg-red-600 focus:outline-none">
                             Register</button>
                     </div>
 

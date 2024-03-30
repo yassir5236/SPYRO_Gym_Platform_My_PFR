@@ -17,4 +17,10 @@ class StaticController extends Controller
        
         return view('contact');
     }
+
+    public function showGalery()
+    {
+       
+        return view('galery');
+    }
 }

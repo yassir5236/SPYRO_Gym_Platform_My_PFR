@@ -73,7 +73,7 @@
                     </div>
                     <div class="px-4 pb-2 pt-4">
                         <button
-                            class="uppercase block w-full p-4 text-lg rounded-full bg-red-800 hover:bg-red-600 focus:outline-none">sign
+                            class="uppercase block w-full p-4 text-lg rounded-full bg-red-700 hover:bg-red-600 focus:outline-none">sign
                             in</button>
                     </div>
 

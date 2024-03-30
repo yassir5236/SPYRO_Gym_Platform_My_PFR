@@ -2,7 +2,7 @@
 
 @section('content')
     <div
-        class="flex overflow-hidden relative flex-col justify-center items-center self-stretch px-16 py-20 mt-4 w-full text-right text-white leading-[170.9%] min-h-[625px] ">
+        class="flex  overflow-hidden relative flex-col justify-center items-center self-stretch px-16 py-20 mt-4 w-full text-right text-white leading-[170.9%] min-h-[900px] ">
         <img loading="lazy" src="{{ asset('storage/images/Group 2002.png') }}"
             class="object-cover absolute inset-0 size-full" />
         <div class="flex relative flex-col mt-48 mb-36 max-md:my-10">
@@ -18,7 +18,7 @@
 
 
     <div class="mt-28 w-full max-w-[1265px] max-md:mt-10 max-md:max-w-full">
-        <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div class="flex gap-5 max-md:flex-col max-md:gap-0  items-center">
             <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                 <div
                     class="flex flex-col grow px-5 mt-16 font-medium text-white leading-[170.9%] max-md:mt-10 max-md:max-w-full">
@@ -26,8 +26,8 @@
                         __WHO WE ARE
                     </div>
                     <div
-                        class="mt-28 text-5xl font-bold tracking-widest text-right border border-black border-solid leading-[79px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[77px]">
-                        TO TRUST US? GET KNOWN WITH US
+                        class="mt-28 text-5xl font-bold tracking-widest  border border-black border-solid leading-[79px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[77px]">
+                    TO TRUST US? GET KNOWN WITH US
                     </div>
                     <div class="mt-14 text-lg tracking-wide leading-8 max-md:mt-10 max-md:max-w-full">
                         Get ready to sweat it out and achieve your fitness goals with our
