@@ -14,9 +14,7 @@ use App\Http\Controllers\StaticController;
 
 use GuzzleHttp\Middleware;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/trainers.profile', function () {
     return view('trainers.profile');
@@ -47,9 +45,8 @@ Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name(
 
 //client routes
 Route::post('/profile', [ClientController::class, 'store'])->name('profile.store');
-
-
-
+Route::get('/pricing', [ClientController::class, 'showPricing'])->name('showPricing');
+Route::get('/produts', [ClientController::class, 'showProducts'])->name('showProducts');
 Route::get('/profile', [ClientController::class, 'showProfileForm'])->name('clients.showProfileForm');
 
 
@@ -60,4 +57,7 @@ Route::get('/profile', [ClientController::class, 'showProfileForm'])->name('clie
 Route::get('/about', [StaticController::class, 'showAbout'])->name('about');
 Route::get('/contact', [StaticController::class, 'showContact'])->name('showContact');
 Route::get('/galery', [StaticController::class, 'showGalery'])->name('showGalery');
+Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
+
+
 

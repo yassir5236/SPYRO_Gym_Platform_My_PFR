@@ -24,7 +24,15 @@ class ClientController extends Controller
         return view('clients.profile', compact('client'));
     }
 
+    public function showPricing()
+    {
+        return view('clients.pricing');
+    }
 
+    public function showProducts()
+    {
+        return view('clients.products');
+    }
 
     // public function store(Request $request)
     // {

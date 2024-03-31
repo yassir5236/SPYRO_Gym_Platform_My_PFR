@@ -12,8 +12,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
     <link href="css/style.css" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="font-sans antialiased bg-black  m-0 p-0">
@@ -31,25 +35,36 @@
 
 
                     @guest
-                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Classes</div>
-                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Coaches</div>
-                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('about') }}" class="p-2">About Us</a></div>
-                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Gallery</div>
-                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('login') }}" class="p-2">Login</a></div>
-                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('register') }}" class="p-2">Register</a></div>
-                    {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-blue-500 transform hover:scale-105"><a href="{{ route('showContact') }}" class="p-2">Contact</a></div> --}}
-                @endguest
-                
-                
+                    <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            <a href="{{ route('showWelcome') }}" class="p-2">Home</a></div>
+                        <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            <a href="{{ route('showGalery') }}" class="p-2">Gallery</a></div>
+                        {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            Classes</div> --}}
+                        <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            Coaches</div>
+                        <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            <a href="{{ route('about') }}" class="p-2">About Us</a></div>
+                        
+                        <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            <a href="{{ route('login') }}" class="p-2">Login</a></div>
+                        <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                            <a href="{{ route('register') }}" class="p-2">Register</a></div>
+                        
+
+                        {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-blue-500 transform hover:scale-105"><a href="{{ route('showContact') }}" class="p-2">Contact</a></div> --}}
+                    @endguest
+
+
 
 
                     @auth
 
                         {{-- <div class="pt-2" >Classes</div> --}}
                         <div class="pt-2">Community</div>
-                        <div class="pt-2">Subscription</div>
+                        <div class="pt-2"><a href="{{route('showPricing')}}">Subscription</a></div>
                         <div class="pt-2">Program</div>
-                        <div class="pt-2">Market place</div>
+                        <div class="pt-2"><a href="{{route('showProducts')}}">Market place</a></div>
                         <div class="pt-2"><a href="{{ route('about') }}" class="p-2">About Us</a></div>
                         <div class="bg-red-800 p-2 px-8 rounded-md ">
                             <form action="{{ route('logout') }}" method="post">
@@ -70,13 +85,11 @@
 
             </div>
             @guest
-            <div  style="background-color: rgb(194 65 12);" class=" text-white p-2 px-8 rounded-md " 
->
-                <form action="#" method="">
-                    @csrf
-                    <button type="submit" class=" transition duration-300 ease-in-out hover:text-red-100 transform hover:scale-105 ">Contact Us </button>
-                </form>
-            </div>
+                <div style="background-color: rgb(194 65 12);" class=" text-white p-2 px-8 rounded-md ">
+                    <a href="{{ route('showContact') }}"
+                        class=" transition duration-300 ease-in-out hover:text-red-100 transform hover:scale-105 ">Contact Us
+                        </a>
+                </div>
             @endguest
         </nav>
     </div>

@@ -23,4 +23,12 @@ class StaticController extends Controller
        
         return view('galery');
     }
+
+    
+    public function showWelcome()
+    {
+       
+        return view('Welcome');
+    }
+    
 }

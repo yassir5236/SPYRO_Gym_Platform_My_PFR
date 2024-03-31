@@ -1,19 +1,14 @@
 @extends('layout')
 
 @section('content')
-    <div
-        class="flex  overflow-hidden relative flex-col justify-center items-center self-stretch px-16 py-20 mt-4 w-full text-right text-white leading-[170.9%] min-h-[900px] ">
-        <img loading="lazy" src="{{ asset('storage/images/Group 2002.png') }}"
-            class="object-cover absolute inset-0 size-full" />
-        <div class="flex relative flex-col mt-48 mb-36 max-md:my-10">
-            <div class="text-5xl font-bold tracking-widest border border-black border-solid max-md:text-4xl">
-
-            </div>
-            <div class="self-center mt-8 text-3xl font-medium tracking-wider border border-black border-solid">
-
-            </div>
-        </div>
+<div class="mt-10" style="position: relative; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <img loading="lazy" src="{{ asset('storage/images/about2.jpg') }}" style="object-fit: cover; width: 100%; height: 100%;" />
+    <div style="position: absolute; top: 60%; left: 65%; transform: translate(-50%, -50%); text-align: center; border-radius: 25px;">
+        <p style="font-size: 40px; color: white;">About page</p>
     </div>
+</div>
+
+    
 
 
 
@@ -128,8 +123,8 @@
 
 
 
-
-
+    <div class="shrink-0 self-stretch mt-10 h-px bg-white border border-white border-solid max-md:max-w-full">
+    </div>
 
     <div class="flex overflow-hidden relative flex-col items-center px-16 pt-16 pb-6  min-h-[411px] max-md:px-5">
         <img loading="lazy" srcset="..." class="object-cover absolute inset-0 size-full" />

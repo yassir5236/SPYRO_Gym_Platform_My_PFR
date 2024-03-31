@@ -20,8 +20,8 @@
 
             <div
                 class="overflow-hidden relative flex-col justify-center self-start px-7 py-4 mt-8 bg-red-600 text-white aspect-[4.11] rounded-md w-40 max-md:px-5">
-
-                Start free trial
+                <a href="{{ route('register') }}">Start free trial</a>
+                
             </div>
         </div>
     </div>
@@ -231,7 +231,50 @@
 
 
 
-    <div class="flex flex-col px-5 text-2xl font-semibold leading-10 text-white mb-40 text-opacity-90 ">
+   
+    <div class="flex flex-col px-5 text-2xl font-semibold leading-10 text-white mb-40 text-opacity-90">
+        <div class="self-center text-4xl leading-[72px] text-white text-opacity-70 max-md:max-w-full">
+            Frequently Asked Question
+        </div>
+        <div class="self-start mt-20 tracking-wide text-center text-white text-opacity-70 max-md:mt-10 max-md:max-w-full">
+            What are your focus areas as a UI/UX agency?
+        </div>
+        <div class="overflow-hidden relative flex-col justify-center px-14 py-12 mt-5 w-full text-lg tracking-wide leading-8 text-white min-h-[208px] max-md:pr-8 max-md:pl-5 max-md:max-w-full">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ec66f2ec0b6e71449154f993f228a9e347bf4b40d2eb730ad578aa28250a9bc0?" class="object-cover absolute inset-0 size-full" />
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled it to
+            make a type specimen book. It has survived not only five centuries, but also.
+        </div>
+        <div class="flex gap-5 mt-6 tracking-wide max-md:flex-wrap max-md:max-w-full">
+            <div class="flex-auto my-auto max-md:max-w-full question-container">
+                <div class="question" data-index="1">
+                    Why is UI/UX design important for your business growth?
+                </div>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f56b8b7a76f7dbb80fae378a845df6b972679eaeefeb9edc27b620782f7b8681?" class="shrink-0 w-10 aspect-square question" />
+            </div>
+        </div>
+        <div class="answer mt-3.5 w-full border border-solid bg-white bg-opacity-70 border-white border-opacity-70 min-h-[1px] max-md:max-w-full hidden">
+            Answer 1
+        </div>
+        <!-- Repeat the above structure for other questions and answers -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionContainers = document.querySelectorAll(".question-container");
+
+            questionContainers.forEach((container) => {
+                const question = container.querySelector(".question");
+                const answer = container.nextElementSibling; // Get the next sibling, which is the answer
+
+                question.addEventListener("click", function() {
+                    answer.classList.toggle("hidden");
+                });
+            });
+        });
+    </script>
+    {{-- <div class="flex flex-col px-5 text-2xl font-semibold leading-10 text-white mb-40 text-opacity-90 ">
         <div class="self-center text-4xl leading-[72px] text-white  text-opacity-70 max-md:max-w-full">
             Frequently Asked Question
         </div>
@@ -282,10 +325,7 @@
         <div
             class="mt-3.5 w-full border border-solid bg-white bg-opacity-70 border-white   border-opacity-70 min-h-[1px] max-md:max-w-full">
         </div>
-    </div>
-
-
-
+    </div> --}}
 
 
 
@@ -328,4 +368,8 @@
             </div>
         </div>
     </div>
+
+
+  
+    
 @endsection
