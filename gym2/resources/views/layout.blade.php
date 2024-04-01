@@ -41,6 +41,8 @@
                             <a href="{{ route('showGalery') }}" class="p-2">Gallery</a></div>
                         {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             Classes</div> --}}
+                            <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showPricing')}}">Subscription</a></div>
+
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             Coaches</div>
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
@@ -58,27 +60,38 @@
 
 
 
-                    @auth
+          
+                @auth
+                @if (auth()->user()->role === 'admin')
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('admin.dashboard') }}" class="p-2">Dashboard</a></div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Community</div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showPricing')}}">Subscription</a></div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Program</div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showProducts')}}">Market place</a></div>
+                <div class="bg-red-800 p-2 px-8 rounded-md ">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class=" ">Logout</button>
+                    </form>
+                </div>
+                @endif
 
-                        {{-- <div class="pt-2" >Classes</div> --}}
-                        <div class="pt-2">Community</div>
-                        <div class="pt-2"><a href="{{route('showPricing')}}">Subscription</a></div>
-                        <div class="pt-2">Program</div>
-                        <div class="pt-2"><a href="{{route('showProducts')}}">Market place</a></div>
-                        <div class="pt-2"><a href="{{ route('about') }}" class="p-2">About Us</a></div>
-                        <div class="bg-red-800 p-2 px-8 rounded-md ">
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
-                                <button type="submit" class=" ">Logout</button>
-                            </form>
-                        </div>
+             
+                @if (auth()->user()->role === 'user')
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Community</div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showPricing')}}">Subscription</a></div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Program</div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showProducts')}}">Market place</a></div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('about') }}" class="p-2">About Us</a></div>
+                <div class="bg-red-800 p-2 px-8 rounded-md ">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class=" ">Logout</button>
+                    </form>
+                </div>
+                @endif
+                @endif
 
-
-                    </div>
-
-
-
-                @endauth
 
 
 
