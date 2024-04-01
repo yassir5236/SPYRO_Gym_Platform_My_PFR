@@ -8,16 +8,24 @@ use App\Models\Subscription;
 class SubscriptionController extends Controller
 {
     // Afficher tous les abonnements
+
+    public function showPricing()
+    {
+        return view('admin.subscription.index');
+    
+    }
+
     public function index()
     {
         $subscriptions = Subscription::all();
-        return view('subscriptions.index', compact('subscriptions'));
+        // dd($subscriptions);
+        return view('admin.subscription.index', compact('subscriptions'));
     }
 
     // Afficher le formulaire de création d'un abonnement
     public function create()
     {
-        return view('subscriptions.create');
+        return view('admin.subscription.create');
     }
 
     // Enregistrer un nouvel abonnement
@@ -25,7 +33,7 @@ class SubscriptionController extends Controller
     {
         $request->validate([
             'price' => 'required|numeric',
-            'duration' => 'required|integer',
+            'duration' => 'required|string',
             'type' => 'required|string',
             'title' => 'required|string',
             'advantage1' => 'nullable|string',
@@ -35,7 +43,7 @@ class SubscriptionController extends Controller
 
         Subscription::create($request->all());
 
-        return redirect()->route('subscriptions.index')->with('success', 'Abonnement créé avec succès.');
+        return redirect()->route('admin.subscriptions.index')->with('success', 'Abonnement créé avec succès.');
     }
 
     // Afficher les détails d'un abonnement
@@ -73,6 +81,6 @@ class SubscriptionController extends Controller
     {
         $subscription->delete();
 
-        return redirect()->route('subscriptions.index')->with('success', 'Abonnement supprimé avec succès.');
+        return redirect()->route('admin.subscriptions.index')->with('success', 'Abonnement supprimé avec succès.');
     }
 }

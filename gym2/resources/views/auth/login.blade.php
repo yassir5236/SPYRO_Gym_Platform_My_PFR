@@ -41,7 +41,7 @@
 
             <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
             <div class="w-full px-24 z-10">
-                <h1 class="text-5xl font-bold text-left tracking-wide">Keep it special</h1>
+                <h1 class="text-5xl font-bold text-left text-white tracking-wide">Keep it special</h1>
                 <p class="text-3xl my-4">Capture your personal memory in unique way, anywhere.</p>
             </div>
 

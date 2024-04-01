@@ -56,7 +56,9 @@ Route::get('/profile', [ClientController::class, 'showProfileForm'])->name('clie
 
 //admin routes
 Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
-Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
+
+Route::get('/subscriptions/display', [SubscriptionController::class, 'showPricing'])->name('admin.showPricing');
+Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('admin.subscriptions.index');
 Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');
 Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 Route::get('/subscriptions/{subscription}', [SubscriptionController::class, 'show'])->name('subscriptions.show');

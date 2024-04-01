@@ -16,6 +16,5 @@ class Subscription extends Model
         'type',
         'advantage_1',
         'advantage_2',
-        // Ajoutez d'autres colonnes si nécessaire
     ];
 }

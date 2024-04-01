@@ -11,7 +11,7 @@
         <div class="text-white relative px-4 py-10 bg-gray-900 shadow-lg sm:rounded-3xl sm:p-20">
 
             <div class="text-center pb-6">
-                <h1 class="text-3xl">Contact Us!</h1>
+                <h1 class="text-3xl text-white">Contact Us!</h1>
 
                 <p class="text-gray-300">
                     Fill up the form below to send us a message.
