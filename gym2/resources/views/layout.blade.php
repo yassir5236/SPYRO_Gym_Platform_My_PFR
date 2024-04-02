@@ -38,7 +38,7 @@
                     <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('showWelcome') }}" class="p-2">Home</a></div>
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                            <a href="{{ route('showGalery') }}" class="p-2">Gallery</a></div>
+                            <a href="{{ route('gallery-images.index') }}" class="p-2">Gallery</a></div>
                         {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             Classes</div> --}}
                             <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showPricing')}}">Subscription</a></div>
@@ -64,7 +64,7 @@
                 @auth
                 @if (auth()->user()->role === 'admin')
                 <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('admin.dashboard') }}" class="p-2">Dashboard</a></div>
-                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('showGalery') }}" class="p-2">Gallery</a></div>
+                <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{ route('gallery-images.index') }}" class="p-2">Gallery</a></div>
                 <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Community</div>
                 <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('admin.subscriptions.index')}}">Subscription</a></div>
                 <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">Program</div>

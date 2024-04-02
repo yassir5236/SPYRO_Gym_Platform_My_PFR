@@ -11,6 +11,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\GalleryImageController;
+
 
 
 
@@ -54,6 +56,10 @@ Route::get('/produts', [ClientController::class, 'showProducts'])->name('showPro
 Route::get('/profile', [ClientController::class, 'showProfileForm'])->name('clients.showProfileForm');
 
 
+
+
+
+
 //admin routes
 Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -61,6 +67,21 @@ Route::get('/subscriptions/display', [SubscriptionController::class, 'showPricin
 Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('admin.subscriptions.index');
 Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');
 Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
+// galery
+Route::get('gallery-images', [GalleryImageController::class, 'index'])->name('gallery-images.index');
+Route::get('gallery-images/create', [GalleryImageController::class, 'create'])->name('gallery-images.create');
+Route::post('gallery-images', [GalleryImageController::class, 'store'])->name('gallery-images.store');
+Route::get('gallery-images/{gallery_image}', [GalleryImageController::class, 'show'])->name('gallery-images.show');
+Route::get('gallery-images/{gallery_image}/edit', [GalleryImageController::class, 'edit'])->name('gallery-images.edit');
+Route::put('gallery-images/{gallery_image}', [GalleryImageController::class, 'update'])->name('gallery-images.update');
+Route::delete('gallery-images/{gallery_image}', [GalleryImageController::class, 'destroy'])->name('gallery-images.destroy');
+
+
+
+
+
+
+
 
 
 Route::get('/subscriptions/{subscription}', [SubscriptionController::class, 'show'])->name('subscriptions.show');
