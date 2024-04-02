@@ -28,6 +28,9 @@ class SubscriptionController extends Controller
         return view('admin.subscription.create');
     }
 
+   
+    
+
     // Enregistrer un nouvel abonnement
     public function store(Request $request)
     {
@@ -53,9 +56,10 @@ class SubscriptionController extends Controller
     }
 
     // Afficher le formulaire de modification d'un abonnement
-    public function edit(Subscription $subscription)
+    public function edit($id)
     {
-        return view('subscriptions.edit', compact('subscription'));
+        $subscription = Subscription::findOrFail($id);
+        return view('admin.subscription.update', compact('subscription'));
     }
 
     // Mettre à jour un abonnement existant
@@ -63,7 +67,7 @@ class SubscriptionController extends Controller
     {
         $request->validate([
             'price' => 'required|numeric',
-            'duration' => 'required|integer',
+            'duration' => 'required|string',
             'type' => 'required|string',
             'title' => 'required|string',
             'advantage1' => 'nullable|string',
@@ -73,7 +77,7 @@ class SubscriptionController extends Controller
 
         $subscription->update($request->all());
 
-        return redirect()->route('subscriptions.index')->with('success', 'Abonnement mis à jour avec succès.');
+        return redirect()->route('admin.subscriptions.index')->with('success', 'Abonnement mis à jour avec succès.');
     }
 
     // Supprimer un abonnement
