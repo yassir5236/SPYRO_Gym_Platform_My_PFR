@@ -39,9 +39,9 @@
                             <a href="{{ route('showWelcome') }}" class="p-2">Home</a></div>
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('gallery-images.index') }}" class="p-2">Gallery</a></div>
-                        {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                            Classes</div> --}}
-                            <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('showPricing')}}">Subscription</a></div>
+
+                            <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                <a href="{{route('showPricing')}}">Subscription</a></div>
 
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             Coaches</div>

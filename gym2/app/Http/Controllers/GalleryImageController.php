@@ -224,11 +224,6 @@ class GalleryImageController extends Controller
 
     public function destroy(GalleryImage $galleryImage)
     {
-        // Supprimer l'image du système de fichiers
-        // $imagePath = public_path('images').'/'.$galleryImage->image_path;
-        // if (file_exists($imagePath)) {
-        //     unlink($imagePath);
-        // }
 
         // Supprimer l'image de la base de données
         $galleryImage->delete();

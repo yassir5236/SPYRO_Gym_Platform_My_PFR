@@ -1,27 +1,5 @@
 @extends('layout')
 
-
-
-{{-- @section('content')
-    <div class="container mx-auto p-4 bg-white">
-        <h2 class="text-xl font-semibold mb-4">Ajouter une nouvelle image</h2>
-        <form action="{{ route('gallery-images.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="image">Image</label>
-                <input id="file" type="file" name="file" class="form-input w-full" required>
-            </div>
-            <!-- Ajoutez d'autres champs de formulaire au besoin -->
-            <div class="flex justify-center">
-                <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">Ajouter l'image</button>
-            </div>
-        </form>
-    </div>
-@endsection --}}
-
-
-
-
 @section('content')
     <div class="min-h-screen bg-black py-6 flex flex-col justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-xl sm:mx-auto">
