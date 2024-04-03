@@ -64,9 +64,16 @@ Route::get('/profile', [ClientController::class, 'showProfileForm'])->name('clie
 Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 
 Route::get('/subscriptions/display', [SubscriptionController::class, 'showPricing'])->name('admin.showPricing');
-Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('admin.subscriptions.index');
+// Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('admin.subscriptions.index');
 Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');
 Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
+
+Route::post('/subscription-requests', [SubscriptionController::class, 'storeRequest'])->name('subscription-requests.storeRequest');
+Route::post('/subscription-requests/{subscriptionRequest}/approve', [SubscriptionController::class, 'approve'])->name('subscription-requests.approve');
+Route::post('/subscription-requests/{subscriptionRequest}/reject', [SubscriptionController::class, 'reject'])->name('subscription-requests.reject');
+Route::get('/subscriptions/test', [SubscriptionController::class, 'index2'])->name('subscriptions.index');
+
+
 // galery
 Route::get('gallery-images', [GalleryImageController::class, 'index'])->name('gallery-images.index');
 Route::get('gallery-images/create', [GalleryImageController::class, 'create'])->name('gallery-images.create');

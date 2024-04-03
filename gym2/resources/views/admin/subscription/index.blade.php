@@ -17,7 +17,6 @@ background-position: center;">
                             <div class="relative w-96 flex flex-col  shadow-lg rounded-lg p-5 border border-solid border-gray-300"
                                 style="background-color:rgb(49, 33, 30)">
                                 <!-- Popular badge -->
-                                {{-- @if ($subscription->type === 'Pro') --}}
                                 <div class="absolute top-0 right-5">
                                     <div class="text-xs inline-flex font-semibold bg-green-100 text-white rounded-full text-center px-3 py-1.5 shadow-sm transform -translate-y-1/2"
                                         style="background-color:rgb(215, 50, 4)">
@@ -95,6 +94,23 @@ background-position: center;">
 
 
                                     </div>
+                                @endif
+                                @if (auth()->user()->role === 'user')
+                                    @if (isset($subscriptionRequested))
+                                        <button type="button" disabled
+                                            class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-300 ease-in-out w-full bg-gray-400 text-white cursor-not-allowed focus:outline-none focus-visible:ring-2">
+                                            Déjà demandé
+                                        </button>
+                                    @else
+                                    <form action="{{ route('subscription-requests.storeRequest') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="subscription_type" value="{{ $subscription->type }}">
+                                        <button type="submit"
+                                            class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-300 ease-in-out w-full bg-red-600 hover:bg-red-400 text-white focus:outline-none focus-visible:ring-2">
+                                            Subscribe
+                                        </button>
+                                    </form>
+                                    @endif
                                 @endif
                             </div>
                         </div>

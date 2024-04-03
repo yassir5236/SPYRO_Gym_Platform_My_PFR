@@ -46,11 +46,9 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         'image', 
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+   
+
+
     protected function casts(): array
     {
         return [
@@ -61,13 +59,16 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
 
 
 
-     /**
-     * Get the client record associated with the user.
-     */
+     
 
 
-   public function client()
+    public function client()
     {
         return $this->hasOne(Client::class);
+    }
+
+    public function subscriptionRequests()
+    {
+        return $this->hasMany(SubscriptionRequest::class);
     }
 }
