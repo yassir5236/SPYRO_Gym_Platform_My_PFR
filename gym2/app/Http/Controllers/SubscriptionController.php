@@ -189,17 +189,4 @@ class SubscriptionController extends Controller
 
 
 
-    // public function approve(SubscriptionRequest $subscriptionRequest)
-    // {
-    //     $subscriptionRequest->update(['status' => 'approved']);
-    //     // Envoyer une notification à l'utilisateur
-    //     return redirect()->back()->with('success', 'Demande approuvée avec succès.');
-    // }
-
-    // public function reject(SubscriptionRequest $subscriptionRequest)
-    // {
-    //     $subscriptionRequest->update(['status' => 'rejected']);
-    //     // Envoyer une notification à l'utilisateur
-    //     return redirect()->back()->with('success', 'Demande rejetée avec succès.');
-    // }
 }

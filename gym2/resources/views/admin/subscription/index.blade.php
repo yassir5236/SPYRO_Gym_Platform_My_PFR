@@ -97,8 +97,8 @@ background-position: center;">
                                 @endif
                                 @if (auth()->user()->role === 'user')
                                     {{-- @if ($subscriptionRequested->count() > 0) --}}
-                                    @if (isset($subscriptionRequested))
-                                        <button type="button" disabled
+                                    @if (isset($subscriptionRequested) && $subscriptionRequested->contains('subscription_type', $subscription->type))
+                                    <button type="button" disabled
                                             class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-300 ease-in-out w-full bg-gray-400 text-white cursor-not-allowed focus:outline-none focus-visible:ring-2">
                                             Déjà demandé
                                         </button>
