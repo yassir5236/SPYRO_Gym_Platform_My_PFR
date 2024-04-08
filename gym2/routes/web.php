@@ -73,6 +73,15 @@ Route::post('/subscription-requests/{subscriptionRequest}/approve', [Subscriptio
 Route::post('/subscription-requests/{subscriptionRequest}/reject', [SubscriptionController::class, 'reject'])->name('subscription-requests.reject');
 Route::get('/subscriptions/test', [SubscriptionController::class, 'index2'])->name('subscriptions.index');
 
+// routes/web.php
+// Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/subscription-requests', [SubscriptionController::class, 'showSubscriptionRequests'])->name('admin.subscription-requests.index');
+    Route::post('/admin/subscription-requests/{subscriptionRequest}/approve', [SubscriptionController::class, 'approve'])->name('subscription-requests.approve');
+    Route::post('/admin/subscription-requests/{subscriptionRequest}/reject', [SubscriptionController::class, 'reject'])->name('subscription-requests.reject');
+// });
+
+
+
 
 // galery
 Route::get('gallery-images', [GalleryImageController::class, 'index'])->name('gallery-images.index');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\SubscriptionApprovedNotification;
+use App\Notifications\SubscriptionRejectedNotification;
 use Illuminate\Http\Request;
 use App\Models\Subscription;
 use App\Models\SubscriptionRequest;
@@ -11,7 +13,58 @@ use Illuminate\Support\Facades\Auth;
 
 class SubscriptionController extends Controller
 {
-    // Afficher tous les abonnements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function showSubscriptionRequests()
+    {
+        // Charger toutes les demandes de souscription en attente avec leurs abonnements associés
+        $subscriptionRequests = SubscriptionRequest::with('subscription')->where('status', 'pending')->get();
+
+        return view('admin.dashboard', compact('subscriptionRequests'));
+    }
+
+
+    public function approve(SubscriptionRequest $subscriptionRequest)
+    {
+        $subscriptionRequest->update(['status' => 'approved']);
+        $subscriptionRequest->user->notify(new SubscriptionApprovedNotification($subscriptionRequest));
+
+        return redirect()->back()->with('success', 'Demande approuvée avec succès.');
+    }
+
+
+
+    public function reject(SubscriptionRequest $subscriptionRequest)
+    {
+        $subscriptionRequest->update(['status' => 'rejected']);
+
+        $subscriptionRequest->user->notify(new SubscriptionRejectedNotification($subscriptionRequest));
+
+        return redirect()->back()->with('success', 'Demande rejetée avec succès.');
+    }
+
+
+
+
+
+
 
     public function showPricing()
     {
@@ -122,29 +175,31 @@ class SubscriptionController extends Controller
     // Afficher tous les abonnements
     public function index2()
     {
-        $subscriptionRequested = $this->getSubscriptionRequests(); // Appel de la méthode pour récupérer les demandes d'abonnement
+        $subscriptionRequested = $this->getSubscriptionRequests();         // Appel de la méthode pour récupérer les demandes d'abonnement
+        // dd($subscriptionRequested);
+
         $subscriptions = Subscription::all(); // Récupérer tous les abonnements
         return view('admin.subscription.index', compact('subscriptions', 'subscriptionRequested')); // Passez les données à la vue
     }
 
-   
 
 
 
 
 
 
-    public function approve(SubscriptionRequest $subscriptionRequest)
-    {
-        $subscriptionRequest->update(['status' => 'approved']);
-        // Envoyer une notification à l'utilisateur
-        return redirect()->back()->with('success', 'Demande approuvée avec succès.');
-    }
 
-    public function reject(SubscriptionRequest $subscriptionRequest)
-    {
-        $subscriptionRequest->update(['status' => 'rejected']);
-        // Envoyer une notification à l'utilisateur
-        return redirect()->back()->with('success', 'Demande rejetée avec succès.');
-    }
+    // public function approve(SubscriptionRequest $subscriptionRequest)
+    // {
+    //     $subscriptionRequest->update(['status' => 'approved']);
+    //     // Envoyer une notification à l'utilisateur
+    //     return redirect()->back()->with('success', 'Demande approuvée avec succès.');
+    // }
+
+    // public function reject(SubscriptionRequest $subscriptionRequest)
+    // {
+    //     $subscriptionRequest->update(['status' => 'rejected']);
+    //     // Envoyer une notification à l'utilisateur
+    //     return redirect()->back()->with('success', 'Demande rejetée avec succès.');
+    // }
 }
