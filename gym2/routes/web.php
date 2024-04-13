@@ -12,6 +12,7 @@ use App\Http\Controllers\StaticController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\GalleryImageController;
+use App\http\Controllers\CoachController;
 
 
 
@@ -115,3 +116,8 @@ Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
 
 
 
+
+
+// coach routes
+
+Route::get('/dashboard_coach',[CoachController::class,'dashboard'])->name('coach.dashboard_coach');

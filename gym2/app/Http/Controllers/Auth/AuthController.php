@@ -91,7 +91,7 @@ class AuthController extends Controller
                     return redirect()->route('admin.subscription-requests.index');
                     break;
                 case 'coach':
-                    return redirect()->route('coach.clients');
+                    return redirect()->route('coach.dashboard_coach');
                     break;
                 case 'user':
                     return redirect()->route('clients.showProfileForm');

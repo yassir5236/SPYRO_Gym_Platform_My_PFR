@@ -109,8 +109,6 @@
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 <a href="{{ route('subscriptions.index') }}">Subscription</a>
                             </div>
-
-
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 Program</div>
@@ -130,6 +128,37 @@
                             </div>
                         @endif
                         @endif
+
+                        @auth
+                            @if (auth()->user()->role === 'coach')
+                                <div
+                                    class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                    <a href="{{ route('coach.dashboard_coach') }}">Dashboard</a>
+                                </div>
+
+                                <div
+                                    class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                    <a href="">Trainers</a>
+                                </div>
+
+                                <div
+                                    class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                    Community
+                                </div>
+
+                                {{-- <div
+                                class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                Program
+                            </div> --}}
+
+                                <div class="bg-red-800 p-2 px-8 rounded-md ">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class=" ">Logout</button>
+                                    </form>
+                                </div>
+                            @endif
+                        @endauth
 
 
 
