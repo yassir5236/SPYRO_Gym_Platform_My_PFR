@@ -13,6 +13,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\GalleryImageController;
 use App\http\Controllers\CoachController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+
+
 
 
 
@@ -121,3 +125,24 @@ Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
 // coach routes
 
 Route::get('/dashboard_coach',[CoachController::class,'dashboard'])->name('coach.dashboard_coach');
+
+Route::resource('products', ProductController::class);
+Route::resource('categories', CategoryController::class);
+
+
+
+// Routes pour les produits
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+
+// Routes pour les catégories
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');

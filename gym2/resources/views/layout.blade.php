@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/css/main.ad49aa9b.css" />
+
 </head>
 
 <body class="font-sans antialiased bg-black  m-0 p-0">
@@ -90,6 +92,10 @@
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 <a href="{{ route('showProducts') }}">Market place</a>
+                            </div>
+                            <div
+                                class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                <a href="{{ route('categories.index') }}">Category_Product</a>
                             </div>
                             <div class="bg-red-800 p-2 px-8 rounded-md ">
                                 <form action="{{ route('logout') }}" method="post">
