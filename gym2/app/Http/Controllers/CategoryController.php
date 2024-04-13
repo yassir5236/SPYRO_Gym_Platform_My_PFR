@@ -30,6 +30,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // Validation des données du formulaire
+        // dd($request);
+
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Limitez le type et la taille de l'image

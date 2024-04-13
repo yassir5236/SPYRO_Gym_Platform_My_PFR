@@ -91,7 +91,7 @@
                                 Program</div>
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                <a href="{{ route('showProducts') }}">Market place</a>
+                                <a href="{{ route('products.index') }}">Market place</a>
                             </div>
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
