@@ -48,8 +48,7 @@
                             <a href="{{ route('subscription') }}">Subscription</a>
                         </div>
 
-                        <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                            Coaches</div>
+                      
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('about') }}" class="p-2">About Us</a>
                         </div>

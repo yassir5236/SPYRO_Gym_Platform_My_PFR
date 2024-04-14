@@ -28,35 +28,18 @@
                         Get ready to sweat it out and achieve your fitness goals with our
                         high-energy fitness classes! Our classes are designed to cater to all
                         fitness levels and provide a fun and motivating environment to help
-                        you reach your peak performance.
+                        you reach your peak performance ...
                     </div>
-                    <div
-                        class="flex gap-2.5 self-start mt-14 text-xl tracking-wide text-white text-opacity-80 max-md:mt-10">
-                        <div
-                            class="shrink-0 self-start w-2 h-2 rounded-full bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)]">
-                        </div>
-                        <div class="flex-auto">Fitness performance</div>
-                    </div>
-                    <div class="flex gap-2.5 self-start mt-4 text-xl tracking-wide text-white text-opacity-80">
-                        <div
-                            class="shrink-0 self-start w-2 h-2 rounded-full bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)]">
-                        </div>
-                        <div class="flex-auto">Fitness performance</div>
-                    </div>
+                 
                     <div class="flex gap-5 mt-16 text-lg tracking-wide max-md:flex-wrap max-md:pr-5 max-md:mt-10">
-                        <div
-                            class="overflow-hidden relative flex-col justify-center items-start px-16 py-4 border border-white border-solid aspect-[4.58] stroke-[1px] stroke-white w-[206px] max-md:px-5">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c28b64c35deacfd1455b8f3c5b2490cef85d83efc3064aa8822fdb49a9fad336?"
-                                class="object-cover absolute inset-0 size-full" />
-                            CALL US
-                        </div>
+                    
                         <div
                             class="overflow-hidden relative flex-col justify-center px-14 py-4 border border-white border-solid aspect-[4.58] stroke-[1px] stroke-white max-md:px-5">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c28b64c35deacfd1455b8f3c5b2490cef85d83efc3064aa8822fdb49a9fad336?"
-                                class="object-cover absolute inset-0 size-full" />
-                            LEARN MORE
+                            <a href="{{route('register')}}">
+                                <img loading="lazy"
+                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f06f74cfc12ff06c4b6afdbdc21e7bbbaf82a85a6ba846b5c8d4bebdb35d1227?"
+                                    class="shrink-0 max-w-full aspect-[3.13] w-[140px]" />
+                                </a>
                         </div>
                     </div>
                 </div>
@@ -76,17 +59,17 @@
 
 
 
-    <div class="flex flex-col items-center  mt-80  px-auto pb-20">
+    <div class="flex flex-col items-center  mt-30  px-auto pb-20">
         <div class="text-3xl tracking-wider text-red-600 max-md:max-w-full">
             __COACHES
         </div>
         <div
-            class="mt-24 text-5xl font-bold tracking-widest text-white leading-[79px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[77px]">
+            class="mt-24 text-3xl font-bold tracking-widest text-white leading-[79px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[77px]">
             BUILD YOUR BODY WITH   OUR BEST TRAINERS
         </div>
         <div class="self-stretch mt-48 w-full max-md:mt-10 max-md:max-w-full">
-            <div class="flex gap-x-10 max-md:flex-col max-md:gap-0">
-                <div class="flex flex-col w-full max-md:ml-0 max-md:w-full">
+            <div class="flex gap-x-10 max-md:flex-col max-md:gap-0 ">
+                <div class="flex flex-col w-full max-md:ml-0 max-md:w-full overflow-hidden transform hover:scale-105 transition duration-300">
                     <div class="flex flex-col grow items-center leading-[170.9%] max-md:mt-10">
                         <img loading="lazy" src="{{ asset('storage/images/Rectangle 17.png') }}"
                             class="self-stretch w-full h-auto max-w-full" />
@@ -96,7 +79,7 @@
                         <div class="mt-6 text-base tracking-wide text-white">Gym trainer</div>
                     </div>
                 </div>
-                <div class="flex flex-col ml-5 w-full max-md:ml-0 max-md:w-full">
+                <div class="flex flex-col ml-5 w-full max-md:ml-0 max-md:w-full overflow-hidden transform hover:scale-105 transition duration-300">
                     <div class="flex flex-col items-center leading-[170.9%] max-md:mt-10">
                         <img loading="lazy" src="{{ asset('storage/images/Rectangle 18.png') }}"
                             class="self-stretch w-full h-auto max-w-full" />
@@ -106,7 +89,7 @@
                         <div class="mt-5 text-base tracking-wide text-white">Gym trainer</div>
                     </div>
                 </div>
-                <div class="flex flex-col ml-5 w-full max-md:ml-0 max-md:w-full">
+                <div class="flex flex-col ml-5 w-full max-md:ml-0 max-md:w-full overflow-hidden transform hover:scale-105 transition duration-300">
                     <div class="flex flex-col grow items-center leading-[170.9%] max-md:mt-10">
                         <img loading="lazy" src="{{ asset('storage/images/Rectangle 20.png') }}"
                             class="self-stretch w-full h-auto max-w-full" />
