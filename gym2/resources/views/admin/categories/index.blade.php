@@ -7,9 +7,7 @@
         class="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Créer un nouveau category</a>
 
     <div class="container ">
-        <div class="flex justify-center	 gap-10 items-center h-[100vh]">
-
-
+        <div class="flex justify-center	 gap-7 items-center h-[70vh]">
             @foreach ($categories as $category)
                 <div class="relative w-full max-w-[300px] mb-4 shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                     <div
