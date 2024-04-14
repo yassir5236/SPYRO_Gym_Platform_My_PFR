@@ -2,7 +2,7 @@
 
 
 @section('content')
-<img src="{{asset('storage/images/products.jpg')}}" alt="">
+{{-- <img src="{{asset('storage/images/products.jpg')}}" alt=""> --}}
 
 <div class="min-h-screen bg-black py-6 flex flex-col justify-center sm:py-12">
     <div class="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <button type="submit" class="shadow bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">Create</button>
+                    <button type="submit" class="shadow bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">Create</button>
                 </div>
 
             </form>

@@ -66,24 +66,71 @@ class ProductController extends Controller
     // Afficher le formulaire de modification d'un produit
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product','categories'));
     }
 
     // Mettre à jour un produit
-    public function update(Request $request, Product $product)
-    {
-        $request->validate([
-            'name' => 'required|string',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric',
-            'quantity' => 'required|integer',
-            'category_id' => 'required|exists:categories,id',
-        ]);
+    // public function update(Request $request, Product $product)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string',
+    //         'description' => 'nullable|string',
+    //         'price' => 'required|numeric',
+    //         'quantity' => 'required|integer',
+    //         'category_id' => 'required|exists:categories,id',
+    //         'image_path' => 'nullable|image',
+    //     ]);
 
-        $product->update($request->all());
+    //     $imagePath = $request->file('image_path')->store('productss', 'public');
 
-        return redirect()->route('products.show', $product)->with('success', 'Produit mis à jour avec succès.');
+    //     $product->update($request->all());
+
+    //     return redirect()->route('products.index', $product)->with('success', 'Produit mis à jour avec succès.');
+    // }
+
+
+    public function update(Request $request, $id)
+{
+    // Valider les données du formulaire
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'price' => 'required|numeric|min:0',
+        'quantity' => 'required|integer|min:0',
+        'category_id' => 'required|exists:categories,id',
+        'image_path' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Taille maximale de l'image de 2 Mo
+    ]);
+
+    // Trouver le produit à mettre à jour
+    $product = Product::findOrFail($id);
+
+    // Mettre à jour les attributs du produit
+    $product->name = $request->name;
+    $product->description = $request->description;
+    $product->price = $request->price;
+    $product->quantity = $request->quantity;
+    $product->category_id = $request->category_id;
+
+    // Vérifier si une nouvelle image a été téléchargée
+    if ($request->hasFile('image_path')) {
+        // Supprimer l'ancienne image si elle existe
+        // if ($product->image_path) {
+        //     Storage::delete($product->image_path);
+        // }
+
+        // Enregistrer la nouvelle image
+        $imagePath = $request->file('image_path')->store('productss', 'public');
+        $product->image_path = $imagePath;
     }
+
+    // Enregistrer les modifications du produit
+    $product->save();
+
+    // Rediriger avec un message de succès
+    return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+}
+
 
     // Supprimer un produit
     public function destroy(Product $product)

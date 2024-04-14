@@ -11,15 +11,14 @@
 
 
             @foreach ($categories as $category)
-                <div class="relative w-full max-w-[300px] mb-4">
+                <div class="relative w-full max-w-[300px] mb-4 shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                     <div
                         class="!z-5 relative flex flex-col rounded-[20px] bg-gray-600 bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-gray-100  undefined">
                         <div class="h-full w-full">
                             <div class="relative w-full">
-                                <!-- Remplacer l'URL de l'image par celle de votre catégorie -->
-
                                 <img src="{{ asset('storage/' . $category->image_url) }}"
-                                    class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full " alt="{{ $category->name }} ">
+                                    class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full "
+                                    alt="{{ $category->name }} ">
                                 <button
                                     class="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer">
                                     <div
