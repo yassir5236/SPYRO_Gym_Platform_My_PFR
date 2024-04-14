@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                            <a href="{{ route('showPricing') }}">Subscription</a>
+                            <a href="{{ route('subscription') }}">Subscription</a>
                         </div>
 
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">

@@ -16,22 +16,6 @@ class SubscriptionController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function showSubscriptionRequests()
     {
         // Charger toutes les demandes de souscription en attente avec leurs abonnements associés

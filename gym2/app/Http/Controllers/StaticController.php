@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Subscription;
+
 
 class StaticController extends Controller
 {
@@ -23,6 +25,17 @@ class StaticController extends Controller
        
         return view('galery');
     }
+
+    
+    public function showSubscription()
+    {
+        $subscriptions = Subscription::all();
+
+        return view('Subscription',compact('subscriptions'));
+    }
+
+ 
+
 
     
     public function showWelcome()

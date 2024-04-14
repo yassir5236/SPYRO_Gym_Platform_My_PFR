@@ -112,10 +112,11 @@ Route::delete('/subscriptions/{subscription}', [SubscriptionController::class, '
 
 
 //static pages 
-
 Route::get('/about', [StaticController::class, 'showAbout'])->name('about');
 Route::get('/contact', [StaticController::class, 'showContact'])->name('showContact');
 Route::get('/galery', [StaticController::class, 'showGalery'])->name('showGalery');
+Route::get('/subscription', [StaticController::class, 'showSubscription'])->name('subscription');
+
 Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
 
 
