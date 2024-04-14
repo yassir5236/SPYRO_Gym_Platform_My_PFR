@@ -139,6 +139,8 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
+
 
 
 // Routes pour les catégories

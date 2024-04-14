@@ -3,8 +3,24 @@
 
 
 @section('content')
-    <a href="{{ route('products.create') }}" class="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Créer
-        un nouveau product</a>
+    <div class="w-full flex justify-between  ">
+        <a href="{{ route('products.create') }}"
+            class="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Créer
+            un nouveau product</a>
+
+        <form action="{{ route('products.index') }}" method="GET" class="flex items-center justify-center">
+            <select name="category_id" id="category_id"
+                class="appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out">
+                <option value="">Select category</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <button type="submit"
+                class="ml-2 bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-300 ease-in-out">Filter</button>
+        </form>
+    </div>
+
 
     <div class="container mx-auto py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -67,6 +83,19 @@
                                         </svg>
                                     </button>
                                 </form>
+
+                                <a href="">
+                                    <svg fill="#ffae00" width="30px" height="30px" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M19,14a1,1,0,0,0,.949-.684l2-6A1,1,0,0,0,21,6H7V2A1,1,0,0,0,6,1H3A1,1,0,0,0,3,3H5V17a1,1,0,0,0,1,1H18a1,1,0,0,0,0-2H7V14ZM7,8H19.613l-1.334,4H7ZM6.5,19A1.5,1.5,0,1,1,5,20.5,1.5,1.5,0,0,1,6.5,19Zm10,0A1.5,1.5,0,1,1,15,20.5,1.5,1.5,0,0,1,16.5,19Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -78,10 +107,5 @@
             @endforelse
         </div>
     </div>
-
-
-
-
-
     </div>
 @endsection

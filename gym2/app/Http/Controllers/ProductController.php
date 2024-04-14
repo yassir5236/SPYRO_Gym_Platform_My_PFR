@@ -10,11 +10,20 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
-        $products = Product::all();
-        return view('admin.products.index', compact('products'));
-    }
+    // public function index()
+    // {
+    //     $products = Product::all();
+    //     $categories = Category::all();
+    //     return view('admin.products.index', compact('products','categories'));
+    // }
+
+    public function index(Request $request)
+{
+    $categoryId = $request->input('category_id');
+    $products = $categoryId ? Product::where('category_id', $categoryId)->get() : Product::all();
+    $categories = Category::all();
+    return view('admin.products.index', compact('products', 'categories'));
+}
 
 
 
@@ -70,24 +79,7 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product','categories'));
     }
 
-    // Mettre à jour un produit
-    // public function update(Request $request, Product $product)
-    // {
-    //     $request->validate([
-    //         'name' => 'required|string',
-    //         'description' => 'nullable|string',
-    //         'price' => 'required|numeric',
-    //         'quantity' => 'required|integer',
-    //         'category_id' => 'required|exists:categories,id',
-    //         'image_path' => 'nullable|image',
-    //     ]);
-
-    //     $imagePath = $request->file('image_path')->store('productss', 'public');
-
-    //     $product->update($request->all());
-
-    //     return redirect()->route('products.index', $product)->with('success', 'Produit mis à jour avec succès.');
-    // }
+   
 
 
     public function update(Request $request, $id)
@@ -112,7 +104,6 @@ class ProductController extends Controller
     $product->quantity = $request->quantity;
     $product->category_id = $request->category_id;
 
-    // Vérifier si une nouvelle image a été téléchargée
     if ($request->hasFile('image_path')) {
         // Supprimer l'ancienne image si elle existe
         // if ($product->image_path) {
@@ -124,21 +115,29 @@ class ProductController extends Controller
         $product->image_path = $imagePath;
     }
 
-    // Enregistrer les modifications du produit
     $product->save();
 
-    // Rediriger avec un message de succès
     return redirect()->route('products.index')->with('success', 'Product updated successfully.');
 }
 
 
-    // Supprimer un produit
     public function destroy(Product $product)
     {
         $product->delete();
 
         return redirect()->route('products.index')->with('success', 'Produit supprimé avec succès.');
     }
+
+
+    // public function filter(Request $request)
+    // {
+    //     $categoryId = $request->input('category_id');
+    //     $products = $categoryId ? Product::where('category_id', $categoryId)->get() : Product::all();
+    //     $categories = Category::all(); // Assurez-vous de passer également les catégories à la vue
+    //     return view('products.index', compact('products', 'categories'));
+    // }
+    
+
 
 
 
