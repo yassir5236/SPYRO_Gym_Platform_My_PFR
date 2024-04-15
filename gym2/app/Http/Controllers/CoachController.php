@@ -9,4 +9,8 @@ class CoachController extends Controller
     public function dashboard(){
         return view('coach.dashboard_coach');
     }
+
+    public function showtrainers(){
+        return view('coach.trainers');
+    }
 }

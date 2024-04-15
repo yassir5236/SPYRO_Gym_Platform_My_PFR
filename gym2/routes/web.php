@@ -126,6 +126,8 @@ Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
 // coach routes
 
 Route::get('/dashboard_coach',[CoachController::class,'dashboard'])->name('coach.dashboard_coach');
+Route::get('/trainers',[CoachController::class,'showtrainers'])->name('showtrainers');
+
 
 Route::resource('products', ProductController::class);
 Route::resource('categories', CategoryController::class);
@@ -134,6 +136,8 @@ Route::resource('categories', CategoryController::class);
 
 // Routes pour les produits
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/clients/index', [ProductController::class, 'indexProductClient'])->name('indexProductClient');
+
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');

@@ -119,12 +119,16 @@
                                 Program</div>
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                <a href="{{ route('showProducts') }}">Market place</a>
+                                <a href="{{ route('indexProductClient') }}">Market place</a>
                             </div>
-                            <div
-                                class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                <a href="{{ route('about') }}" class="p-2">About Us</a>
+                          
+                            <div  class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                <a href="{{ route('showContact') }}"
+                                    >Contact
+                                    Us
+                                </a>
                             </div>
+
                             <div class="bg-red-800 p-2 px-8 rounded-md ">
                                 <form action="{{ route('logout') }}" method="post">
                                     @csrf
@@ -143,7 +147,7 @@
 
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    <a href="">Trainers</a>
+                                    <a href="{{route('showtrainers')}}">Trainers</a>
                                 </div>
 
                                 <div
