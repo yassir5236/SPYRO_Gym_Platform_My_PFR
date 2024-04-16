@@ -15,6 +15,7 @@ use App\Http\Controllers\GalleryImageController;
 use App\http\Controllers\CoachController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 
 
 
@@ -153,3 +154,21 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+
+// cart ROUTE
+Route::post('/cart/add/{product}', [CartController::class,'add'])->name('cart.add');
+Route::get('/cart/checkout', [CartController::class,'checkout'])->name('cart.checkout');
+Route::get('/panier', [CartController::class,'panier'])->name('clients.product.panier');
+Route::post('/cart/remove/{id}', [CartController::class,'remove'])->name('cart.remove');
+// Route::patch('/cart/update/{id}', [CartController::class,'updateQuantity'])->name('cart.update');
+Route::patch('/cart/update/{id}', [CartController::class,'update'])->name('cart.update');
+
+// Route::patch('/cart/update/{id}', 'CartController@update')->name('cart.update');
+
+
+
+// Route::post('/cart/add/', [CartController::class,'addToCart'])->name('addToCart');
+// Route::post('/cart/add/{product}', 'CartController@add')->name('cart.add');
+
+// Route::post('/cart/add', 'CartController@addToCart')->name('cart.add');

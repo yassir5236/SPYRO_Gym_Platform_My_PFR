@@ -29,8 +29,8 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         'name',
         'email',
         'password',
-        'role', 
-        'image', 
+        'role',
+        'image',
     ];
 
     /**
@@ -42,11 +42,11 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         'password',
         'remember_token',
         'email_verified_at',
-        'role', 
-        'image', 
+        'role',
+        'image',
     ];
 
-   
+
 
 
     protected function casts(): array
@@ -58,10 +58,6 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     }
 
 
-
-     
-
-
     public function client()
     {
         return $this->hasOne(Client::class);
@@ -70,5 +66,10 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     public function subscriptionRequests()
     {
         return $this->hasMany(SubscriptionRequest::class);
+    }
+
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
     }
 }

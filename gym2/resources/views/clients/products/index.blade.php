@@ -30,8 +30,8 @@
                         <div class="flex justify-between items-center">
                             <div>
                                 <p class="text-gray-800 font-semibold">Price: ${{ number_format($product->price, 2) }}</p>
-                                <p class="text-gray-800">Quantity: {{ $product->quantity }}</p>
-                                <p class="text-gray-800">Category: {{ $product->category->name }}</p>
+                                {{-- <p class="text-gray-800">Quantity: {{ $product->quantity }}</p>
+                                <p class="text-gray-800">Category: {{ $product->category->name }}</p> --}}
                             </div>
                             <div class="flex space-x-4">
                                 {{-- <a href="{{ route('products.edit', $product->id) }}">
@@ -80,7 +80,7 @@
                                     </button>
                                 </form> --}}
 
-                                <a href="">
+                                <a href="{{ route('products.show', $product->id) }}">
                                     <svg fill="#ffae00" width="30px" height="30px" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

@@ -35,10 +35,13 @@ class ProductController extends Controller
 
 
 
-    public function show(Product $product)
+    public function show($id)
     {
-        return view('products.show', compact('product'));
+        $product = Product::findOrFail($id);
+        return view('clients.products.detail', compact('product'));
     }
+    
+
 
 
 

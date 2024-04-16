@@ -13,12 +13,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    {{-- <link href="css/style.css" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/css/main.ad49aa9b.css" />
+    <link rel="stylesheet"
+        href="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/css/main.ad49aa9b.css" />
 
 </head>
 
@@ -48,7 +49,7 @@
                             <a href="{{ route('subscription') }}">Subscription</a>
                         </div>
 
-                      
+
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('about') }}" class="p-2">About Us</a>
                         </div>
@@ -59,7 +60,24 @@
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('register') }}" class="p-2">Register</a>
                         </div>
-
+                        <div >
+                            <a href="{{ route('clients.product.panier') }}" class="p-2">
+                                <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" stroke="#ffa200">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill="#ff9b29" d="M18 15H7L5.5 6H21l-3 9z"></path>
+                                        <path stroke="#ff9b29" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M3 3h2l.5 3m0 0L7 15h11l3-9H5.5z"></path>
+                                        <circle cx="8" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"></circle>
+                                        <circle cx="17" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"></circle>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
 
                         {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-blue-500 transform hover:scale-105"><a href="{{ route('showContact') }}" class="p-2">Contact</a></div> --}}
                     @endguest
@@ -121,11 +139,34 @@
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 <a href="{{ route('indexProductClient') }}">Market place</a>
                             </div>
+
                           
-                            <div  class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                <a href="{{ route('showContact') }}"
-                                    >Contact
+
+                            <div
+                                class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                <a href="{{ route('showContact') }}">Contact
                                     Us
+                                </a>
+                            </div>
+
+                            <div 
+                            class=" transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                        
+                                <a href="{{ route('clients.product.panier') }}" class="py-1">
+                                    <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" stroke="#ffa200">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path fill="#ff9b29" d="M18 15H7L5.5 6H21l-3 9z"></path>
+                                            <path stroke="#ff9b29" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M3 3h2l.5 3m0 0L7 15h11l3-9H5.5z"></path>
+                                            <circle cx="8" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"></circle>
+                                            <circle cx="17" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"></circle>
+                                        </g>
+                                    </svg>
                                 </a>
                             </div>
 
@@ -147,7 +188,7 @@
 
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    <a href="{{route('showtrainers')}}">Trainers</a>
+                                    <a href="{{ route('showtrainers') }}">Trainers</a>
                                 </div>
 
                                 <div
@@ -188,7 +229,7 @@
 
 
 
-
+        {{-- 
         <div id="burger-menu-overlay" class="hidden lg:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50">
             <div class="container mx-auto flex items-center justify-center h-full ">
                 <div class="text-white text-2xl">
@@ -231,7 +272,7 @@
             document.getElementById('close-burger-menu-btn').addEventListener('click', function() {
                 document.getElementById('burger-menu-overlay').classList.add('hidden');
             });
-        </script>
+        </script> --}}
 
 
 
