@@ -158,7 +158,7 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 
 // cart ROUTE
 Route::post('/cart/add/{product}', [CartController::class,'add'])->name('cart.add');
-Route::get('/cart/checkout', [CartController::class,'checkout'])->name('cart.checkout');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 Route::get('/panier', [CartController::class,'panier'])->name('clients.product.panier');
 Route::post('/cart/remove/{id}', [CartController::class,'remove'])->name('cart.remove');
 // Route::patch('/cart/update/{id}', [CartController::class,'updateQuantity'])->name('cart.update');

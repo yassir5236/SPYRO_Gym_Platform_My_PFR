@@ -15,45 +15,110 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
 
+    // public function add(Request $request, Product $product)
+    // {
+    //     $quantity = $request->input('quantity');
+    //     $cart = session()->get('cart');
+
+
+    
+    //     // Si le panier est vide, ajoutez le premier produit
+    //     if (!$cart) {
+    //         $cart = [
+    //             $product->id => [
+    //                 'name' => $product->name,
+    //                 'quantity' => $quantity,
+    //                 'price' => $product->price,
+    //                 'image_path' => $product->image_path,
+
+    //             ]
+    //         ];
+
+
+    //         session()->put('cart', $cart);
+    //         return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
+    //     }
+
+    //     // Si le panier n'est pas vide, ajoutez un nouveau produit ou mettez à jour la quantité
+    //     if (isset($cart[$product->id])) {
+    //         $cart[$product->id]['quantity'] += $quantity;
+    //         session()->put('cart', $cart);
+    //         return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
+    //     }
+
+    //     $cart[$product->id] = [
+    //         'name' => $product->name,
+    //         'quantity' => $quantity,
+    //         'price' => $product->price,
+    //         'image_path' => $product->image_path,
+
+
+    //     ];
+
+    //     session()->put('cart', $cart);
+    //     return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
+    // }
+
     public function add(Request $request, Product $product)
-    {
-        $quantity = $request->input('quantity');
-        $cart = session()->get('cart');
+{
+    $quantity = $request->input('quantity');
+    $cart = session()->get('cart');
 
-        // Si le panier est vide, ajoutez le premier produit
-        if (!$cart) {
-            $cart = [
-                $product->id => [
-                    'name' => $product->name,
-                    'quantity' => $quantity,
-                    'price' => $product->price,
-                    'image_path' => $product->image_path
-                ]
-            ];
+    // Calculer la quantité maximale disponible pour ce produit
+    // $maxQuantity = $product->quantity;
 
-            
-            session()->put('cart', $cart);
-            return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
-        }
-
-        // Si le panier n'est pas vide, ajoutez un nouveau produit ou mettez à jour la quantité
-        if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] += $quantity;
-            session()->put('cart', $cart);
-            return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
-        }
-
-        $cart[$product->id] = [
-            'name' => $product->name,
-            'quantity' => $quantity,
-            'price' => $product->price,
-            'image_path' => $product->image_path
-
+    // Si le panier est vide, ajouter le premier produit
+    if (!$cart) {
+        $cart = [
+            $product->id => [
+                'name' => $product->name,
+                'quantity' => $quantity,
+                'price' => $product->price,
+                'image_path' => $product->image_path,
+                'max_quantity' => $product->quantity  // Ajouter la clé 'max_quantity'
+            ]
         ];
-     
+        // dd($cart);
+       
+
         session()->put('cart', $cart);
         return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
     }
+
+    // Si le panier n'est pas vide, ajouter un nouveau produit ou mettre à jour la quantité
+    if (isset($cart[$product->id])) {
+        if($cart[$product->id]['quantity']>= $product->quantity){
+            session()->put('cart', $cart);
+            // dd($cart);
+            return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
+        }else{
+            $cart[$product->id]['quantity'] += $quantity;
+            session()->put('cart', $cart);
+            // dd($cart);
+            // return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
+        }
+
+        
+
+    }
+
+    $cart[$product->id] = [
+        'name' => $product->name,
+        'quantity' => $quantity,
+        'price' => $product->price,
+        'image_path' => $product->image_path,
+        'max_quantity' => $product->quantity  // Ajouter la clé 'max_quantity'
+    ];
+  
+    // dd($cart);
+
+    session()->put('cart', $cart);
+    return redirect()->route('clients.product.panier')->with('success', 'Product added to cart successfully');
+}
+
+
+
+
 
 
     public function remove($id)
@@ -70,75 +135,44 @@ class CartController extends Controller
 
     public function panier()
     {
+
+        // Passer les éléments du panier à la vue, y compris la quantité disponible de chaque produit
         return view('clients.products.panier');
     }
 
 
-    // public function update(Request $request, $id)
-    // {
-    //     $quantity = $request->input('quantity');
-    //     $cart = session()->get('cart');
-
-    //     if (isset($cart[$id])) {
-    //         $cart[$id]['quantity'] = $quantity;
-    //         session()->put('cart', $cart);
-    //     }
-
-    //     return redirect()->route('clients.product.panier')->with('success', 'Cart updated successfully');
-    // }
 
 
-//     public function update(Request $request, $id)
-// {
-//     $quantity = $request->input('quantity');
-//     $cart = session()->get('cart');
+    public function update(Request $request, $id)
+    {
+        $quantity = $request->input('quantity');
+        $cart = session()->get('cart');
 
-//     if (isset($cart[$id])) {
-//         $cart[$id]['quantity'] = $quantity;
-//         session()->put('cart', $cart);
-//     }
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $quantity;
+            session()->put('cart', $cart);
+            return response()->json(['success' => true]);
+        }
 
-//     return redirect()->route('clients.product.panier')->with('success', 'Cart updated successfully');
-// }
-
-public function update(Request $request, $id)
-{
-    $quantity = $request->input('quantity');
-    $cart = session()->get('cart');
-
-    if (isset($cart[$id])) {
-        $cart[$id]['quantity'] = $quantity;
-        session()->put('cart', $cart);
-        return response()->json(['success' => true]);
+        return response()->json(['success' => false, 'message' => 'Product not found in cart']);
     }
 
-    return response()->json(['success' => false, 'message' => 'Product not found in cart']);
-}
-    
-    
+
 
 
 
     public function checkout()
     {
-        // Calculer le total de la commande
-        $total = 0;
-        foreach (session('cart') as $product) {
-            $total += $product['quantity'] * $product['price'];
+        // Récupérer les éléments du panier depuis la session
+        $cartItems = session('cart');
+
+        // Calculer le prix total des éléments du panier
+        $totalPrice = 0;
+        foreach ($cartItems as $item) {
+            $totalPrice += $item['price'] * $item['quantity'];
         }
 
-        return view('cart.checkout', compact('total'));
-    }
-
-
-
-    public function confirm(Request $request)
-    {
-        // Finalisez l'achat, générez un devis, etc.
-        // Réinitialisez le panier après l'achat réussi
-
-        session()->forget('cart'); // Effacer le panier après la confirmation de l'achat
-
-        return view('cart.confirmation');
+        // Passer les éléments du panier et le prix total à la vue de checkout
+        return view('clients.products.chekout', compact('cartItems', 'totalPrice'));
     }
 }

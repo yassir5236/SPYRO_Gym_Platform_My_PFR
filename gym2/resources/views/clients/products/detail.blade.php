@@ -13,11 +13,38 @@
                 <form action="{{ route('cart.add', $product->id) }}" method="POST" id="add-to-cart-form" class="flex items-center mt-4">
                     @csrf
                     <label for="quantity" class="mr-2">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" value="1" min="1" class="w-16 px-2 py-1 border border-gray-300 rounded">
+                    <input type="number" name="quantity" id="quantity" value="1" min="1" max="{{ $product->quantity }}" class="w-16 px-2 py-1 border border-gray-300 rounded">
                     <button type="submit" id="add-to-cart-btn" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add to Cart</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityInput = document.getElementById('quantity');
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+
+            quantityInput.addEventListener('input', function() {
+                const quantityAvailable = parseInt('{{ $product->quantity }}');
+                const selectedQuantity = parseInt(this.value);
+
+                if (selectedQuantity > quantityAvailable) {
+                    this.value = quantityAvailable;
+                }
+            });
+
+            addToCartBtn.addEventListener('click', function(event) {
+                const quantityAvailable = parseInt('{{ $product->quantity }}');
+                const selectedQuantity = parseInt(quantityInput.value);
+
+                if (selectedQuantity > quantityAvailable) {
+                    event.preventDefault();
+                    alert('Cannot add more than available quantity');
+                }
+            });
+        });
+    </script>
 @endsection
+
 
