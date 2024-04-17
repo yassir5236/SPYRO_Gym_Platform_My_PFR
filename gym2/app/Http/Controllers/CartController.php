@@ -175,4 +175,25 @@ class CartController extends Controller
         // Passer les éléments du panier et le prix total à la vue de checkout
         return view('clients.products.chekout', compact('cartItems', 'totalPrice'));
     }
+
+
+
+    public function confirmPurchase()
+{
+    $cartItems = session('cart');
+
+    foreach ($cartItems as $id => $item) {
+        $product = Product::find($id);
+        if ($product) {
+            $product->quantity -= $item['quantity']; // Déduire la quantité choisie de la quantité disponible
+            $product->save(); // Mettre à jour la quantité disponible dans la base de données
+        }
+    }
+
+    session()->forget('cart'); // Effacer le panier une fois l'achat confirmé
+
+    return redirect()->route('indexProductClient')->with('success', 'Purchase confirmed successfully');
+}
+
+
 }

@@ -60,7 +60,7 @@
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('register') }}" class="p-2">Register</a>
                         </div>
-                        <div >
+                        {{-- <div >
                             <a href="{{ route('clients.product.panier') }}" class="p-2">
                                 <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" stroke="#ffa200">
@@ -77,7 +77,7 @@
                                     </g>
                                 </svg>
                             </a>
-                        </div>
+                        </div> --}}
 
                         {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-blue-500 transform hover:scale-105"><a href="{{ route('showContact') }}" class="p-2">Contact</a></div> --}}
                     @endguest
@@ -274,7 +274,18 @@
             });
         </script> --}}
 
-
+        @if(session('success'))
+        <div class="  mt-5 bg-gray-200 border  border-green-600 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold text-green-600">Succès!</strong>
+            <span class="block sm:inline text-green-600 ">{{ session('success') }}</span>
+        </div>
+        @endif
+        @if(session('error'))
+        <div class="bg-red-100 border  text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Erreur!</strong>
+            <span class="block sm:inline">{{ session('error') }}</span>
+        </div>
+        @endif
 
         <div class="container mx-auto flex-1 mt-8">
             @yield('content')

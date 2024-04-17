@@ -163,6 +163,8 @@ Route::get('/panier', [CartController::class,'panier'])->name('clients.product.p
 Route::post('/cart/remove/{id}', [CartController::class,'remove'])->name('cart.remove');
 // Route::patch('/cart/update/{id}', [CartController::class,'updateQuantity'])->name('cart.update');
 Route::patch('/cart/update/{id}', [CartController::class,'update'])->name('cart.update');
+Route::post('/checkout/confirm', [CartController::class, 'confirmPurchase'])->name('checkout.confirm');
+
 
 // Route::patch('/cart/update/{id}', 'CartController@update')->name('cart.update');
 
