@@ -61,27 +61,16 @@
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('register') }}" class="p-2">Register</a>
                         </div>
-                        {{-- <div >
-                            <a href="{{ route('clients.product.panier') }}" class="p-2">
-                                <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" stroke="#ffa200">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path fill="#ff9b29" d="M18 15H7L5.5 6H21l-3 9z"></path>
-                                        <path stroke="#ff9b29" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M3 3h2l.5 3m0 0L7 15h11l3-9H5.5z"></path>
-                                        <circle cx="8" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2"></circle>
-                                        <circle cx="17" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2"></circle>
-                                    </g>
-                                </svg>
-                            </a>
-                        </div> --}}
+                     
 
-                        {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-blue-500 transform hover:scale-105"><a href="{{ route('showContact') }}" class="p-2">Contact</a></div> --}}
                     @endguest
+
+
+
+
+
+
+                    
 
 
 

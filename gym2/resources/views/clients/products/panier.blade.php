@@ -6,8 +6,8 @@
     <div class="container mx-auto py-6">
         <h1 class="text-3xl font-bold mb-4 text-white">Shopping Cart</h1>
 
-        <div class="flex justify-between md:space-x-6">
-            <div class=" flex   w-full md:w-3/4">
+        <div class="flex items-between  md:space-x-6">
+            <div class=" flex items-between w-full md:w-3/4">
                 @if (session('cart'))
                     @php
                         $totalPrice = 0;
@@ -24,23 +24,12 @@
                                     <p class="text-gray-600">Price: ${{ $item['price'] }}</p>
 
 
-                                    {{-- <div class="flex items-center">
-                                        <button
-                                            class="px-4 py-2 bg-gray-300 text-white rounded-l-md focus:outline-none focus:ring focus:ring-blue-400 btn-decrease"
-                                            data-id="{{ $id }}">-</button>
-                                        <p class="text-gray-600 px-4">{{ $item['quantity'] }}</p>
-                                        <button
-                                            class="px-4 py-2 bg-gray-300 text-white rounded-r-md focus:outline-none focus:ring focus:ring-blue-400 btn-increase"
-                                            data-id="{{ $id }}">+</button>
-                                    </div> --}}
-
-
 
                                     <div class="flex items-center">
                                         <button
                                             class="px-4 py-2 bg-gray-300 text-white rounded-l-md focus:outline-none focus:ring focus:ring-blue-400 btn-decrease"
                                             data-id="{{ $id }}">-</button>
-                                        {{-- @dd($item); --}}
+
                                         <p class="text-gray-600 px-4" data-quantity="{{ $item['quantity'] }}">
                                             {{ $item['quantity'] }}</p>
                                         <button
@@ -81,6 +70,13 @@
 
 
 
+
+
+
+
+
+
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -164,3 +160,4 @@
         });
     </script>
 @endsection
+

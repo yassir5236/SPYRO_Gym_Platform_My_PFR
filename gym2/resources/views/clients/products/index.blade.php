@@ -3,8 +3,6 @@
 
 
 @section('content')
- 
-
     <div class="w-full flex justify-between">
         <form action="{{ route('indexProductClient') }}" method="GET" class="flex items-center justify-center">
             <select name="category_id" id="category_id"
@@ -26,13 +24,13 @@
 
 
 
-    <div id="productsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div id="productsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
 
     </div>
 
 
 
-    <div  id="existingProducts" class="container mx-auto py-8">
+    <div id="existingProducts" class="container mx-auto py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @forelse ($products as $product)
                 <div class="bg-white  shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
@@ -99,7 +97,7 @@
         // Function to handle search input
         function handleSearchInput() {
             let searchInput = document.getElementById('searchInput').value;
-    
+
             // Check if search input is not empty
             if (searchInput.trim() !== '') {
                 let xhr = new XMLHttpRequest();
@@ -114,7 +112,7 @@
                             if (data.products && data.products.length > 0) {
                                 let productsContainer = document.getElementById('productsContainer');
                                 productsContainer.innerHTML = '';
-    
+
                                 data.products.forEach(product => {
                                     let price = parseFloat(product.price);
                                     let productCard = `
@@ -127,13 +125,34 @@
                                                 <div>
                                                     <p class="text-gray-800 font-semibold">Price: $${price.toFixed(2)}</p>
                                                 </div>
+
+                                                <div class="flex space-x-4">
+
+                                                   
+                                                    <a href="{{ route('products.show', ['product' => ':productId']) }}">
+
+                                                    <svg fill="#ffae00" width="30px" height="30px" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <path
+                                                                d="M19,14a1,1,0,0,0,.949-.684l2-6A1,1,0,0,0,21,6H7V2A1,1,0,0,0,6,1H3A1,1,0,0,0,3,3H5V17a1,1,0,0,0,1,1H18a1,1,0,0,0,0-2H7V14ZM7,8H19.613l-1.334,4H7ZM6.5,19A1.5,1.5,0,1,1,5,20.5,1.5,1.5,0,0,1,6.5,19Zm10,0A1.5,1.5,0,1,1,15,20.5,1.5,1.5,0,0,1,16.5,19Z">
+                                                            </path>
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     `;
+                                    productCard = productCard.replace(':productId', product.id);
+
                                     productsContainer.insertAdjacentHTML('beforeend', productCard);
                                 });
-    
+
                                 // Hide the section for existing products
                                 document.getElementById('existingProducts').style.display = 'none';
                             } else {
@@ -147,9 +166,9 @@
                         }
                     }
                 };
-    
+
                 xhr.send('search=' + encodeURIComponent(searchInput));
-    
+
             } else {
                 // If the search input is empty, hide the search results
                 let productsContainer = document.getElementById('productsContainer');
@@ -160,13 +179,11 @@
                 document.getElementById('noProductsMessage').style.display = 'none';
             }
         }
-    
+
         // Listen for input event on search input
         document.getElementById('searchInput').addEventListener('input', handleSearchInput);
-    
+
         // Call handleSearchInput initially to handle the initial state of the search input
         handleSearchInput();
     </script>
-    
-
 @endsection
