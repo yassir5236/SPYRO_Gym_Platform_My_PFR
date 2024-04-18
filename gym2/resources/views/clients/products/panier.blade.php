@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 
@@ -128,10 +129,6 @@
                 } else {
                     return;
                 }
-
-
-
-
 
 
 

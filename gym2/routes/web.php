@@ -146,6 +146,7 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
+Route::post('/products/search', [ProductController::class, 'searchProductClient'])->name('searchProductClient');
 
 
 

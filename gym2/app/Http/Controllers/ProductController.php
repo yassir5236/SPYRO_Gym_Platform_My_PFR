@@ -35,6 +35,8 @@ class ProductController extends Controller
 
 
 
+
+
     public function show($id)
     {
         $product = Product::findOrFail($id);
@@ -150,8 +152,28 @@ class ProductController extends Controller
 
 
 
+    // public function searchProductClient($searchinput)
+    // {
+    //     $search = 'Karleigh'; // Utiliser le nom correct du paramètre
+    
+    //     $products = Product::where('name', 'like', '%' . $search . '%')->get();
+    
+    //     return response()->json(['products'=>$products]);
+    // }
+    
 
 
+    public function searchProductClient(Request $request)
+    {
+        // Récupérer le terme de recherche depuis la requête
+        $search = $request->input('search');
+
+        // Recherche des produits basée sur le terme de recherche
+        $products = Product::where('name', 'like', '%' . $search . '%')->get();
+
+        // Retourner les produits sous forme de réponse JSON
+        return response()->json(['products' => $products]);
+    }
 
 
 
