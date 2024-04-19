@@ -79,6 +79,8 @@ Route::post('/subscription-requests/{subscriptionRequest}/approve', [Subscriptio
 Route::post('/subscription-requests/{subscriptionRequest}/reject', [SubscriptionController::class, 'reject'])->name('subscription-requests.reject');
 Route::get('/subscriptions/test', [SubscriptionController::class, 'index2'])->name('subscriptions.index');
 Route::get('/admin/coaches', [CoachController::class, 'adminCoaches'])->name('adminCoaches');
+Route::post('/admin/coaches/assign/{id}', [AdminController::class, 'assignCoach'])->name('admin.assignCoach');
+
 
 
 // routes/web.php

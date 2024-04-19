@@ -34,4 +34,6 @@ class AdminController extends Controller
 
         return redirect()->back()->with('error', 'User or coach not found');
     }
+
+    
 }

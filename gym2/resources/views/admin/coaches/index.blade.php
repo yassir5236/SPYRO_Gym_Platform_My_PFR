@@ -56,7 +56,7 @@
 
             
             <div class="border border-gray-300 shadow-md rounded-lg p-4 mb-4">
-                <form  method="POST"
+                <form action="{{ route('admin.assignCoach', $user->id) }}" method="POST"
                     class="flex items-center">
                     @csrf
                     <select name="coach_id"
