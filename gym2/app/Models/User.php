@@ -77,4 +77,9 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     {
         return $this->hasOne(Coach::class);
     }
+
+    // public function coach()
+    // {
+    //     return $this->belongsTo(Coach::class);
+    // }
 }

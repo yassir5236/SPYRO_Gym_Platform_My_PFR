@@ -13,6 +13,7 @@ class Client extends Model
    
     protected $fillable = [
         'user_id',
+        'coach_id',
         'age',
         'weight',
         'height',
@@ -26,5 +27,10 @@ class Client extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function coach()
+    {
+        return $this->belongsTo(Coach::class, 'coach_id');
     }
 }

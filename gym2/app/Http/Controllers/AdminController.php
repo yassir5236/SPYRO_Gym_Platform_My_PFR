@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Client;
 use App\Models\Coach;
 
 class AdminController extends Controller
@@ -14,26 +15,29 @@ class AdminController extends Controller
     }
 
 
-    // app/Http/Controllers/AdminController.php
 
-    public function assignCoach(Request $request, $userId)
-    {
-        $user = User::find($userId);
-        $coachId = $request->input('coach_id');
 
-        // Vérifier si l'utilisateur et le coach existent
-        if ($user && $coachId) {
-            $coach = Coach::find($coachId);
 
-            // Mettre à jour la relation entre l'utilisateur et le coach
-            $user->coach()->associate($coach);
-            $user->save();
+public function assignCoach(Request $request)
+{
+    $client = Client::find($request->input('client'));
+    // dd($client);
+    $coachId = $request->input('coach_id');
+    // dd($coachId);
 
-            return redirect()->back()->with('success', 'Coach assigned successfully');
-        }
+    // Vérifier si le client et le coach existent
+    if ($client && $coachId) {
+        $coach = Coach::find($coachId);
 
-        return redirect()->back()->with('error', 'User or coach not found');
+        // Associer le client au coach sélectionné
+        $client->coach_id = $coachId; // Assurez-vous que la clé étrangère est correctement définie dans votre base de données
+        $client->save();
+
+        return redirect()->back()->with('success', 'Coach assigned successfully');
     }
+
+    return redirect()->back()->with('error', 'Client or coach not found');
+}
 
     
 }
