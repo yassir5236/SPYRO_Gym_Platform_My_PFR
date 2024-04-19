@@ -61,7 +61,7 @@
                         <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                             <a href="{{ route('register') }}" class="p-2">Register</a>
                         </div>
-                     
+
 
                     @endguest
 
@@ -95,7 +95,8 @@
                             </div>
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                <a href="{{ route('adminCoaches') }}">Users</a></div>
+                                <a href="{{ route('adminCoaches') }}">Users</a>
+                            </div>
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 <a href="{{ route('products.index') }}">Market place</a>
@@ -114,6 +115,12 @@
 
 
                         @if (auth()->user()->role === 'user')
+
+                            <div
+                                class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                <a href="{{ route('clients.showProfileForm') }}">Profile</a>
+                            </div>
+
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 Community</div>
@@ -122,15 +129,13 @@
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 <a href="{{ route('subscriptions.index') }}">Subscription</a>
                             </div>
-                            <div
-                                class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                Program</div>
+
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                 <a href="{{ route('indexProductClient') }}">Market place</a>
                             </div>
 
-                          
+
 
                             <div
                                 class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
@@ -139,22 +144,21 @@
                                 </a>
                             </div>
 
-                            <div 
-                            class=" transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                        
+                            <div class=" transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+
                                 <a href="{{ route('clients.product.panier') }}" class="py-1">
-                                    <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" stroke="#ffa200">
+                                    <svg width="40px" height="40px" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffa200">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                         <g id="SVGRepo_iconCarrier">
                                             <path fill="#ff9b29" d="M18 15H7L5.5 6H21l-3 9z"></path>
                                             <path stroke="#ff9b29" stroke-linecap="round" stroke-linejoin="round"
                                                 stroke-width="2" d="M3 3h2l.5 3m0 0L7 15h11l3-9H5.5z"></path>
-                                            <circle cx="8" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2"></circle>
-                                            <circle cx="17" cy="20" r="1" stroke="#ff9b29" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2"></circle>
+                                            <circle cx="8" cy="20" r="1" stroke="#ff9b29"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+                                            <circle cx="17" cy="20" r="1" stroke="#ff9b29"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
                                         </g>
                                     </svg>
                                 </a>
@@ -188,7 +192,7 @@
 
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                     <a href="{{route('coach.specialization.form')}}">specialization</a>
+                                    <a href="{{ route('coach.specialization.form') }}">specialization</a>
                                 </div>
 
                                 {{-- <div
@@ -269,17 +273,18 @@
             });
         </script> --}}
 
-        @if(session('success'))
-        <div class="  mt-5 bg-gray-200 border  border-green-600 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold text-green-600">Succès!</strong>
-            <span class="block sm:inline text-green-600 ">{{ session('success') }}</span>
-        </div>
+        @if (session('success'))
+            <div class="  mt-5 bg-gray-200 border  border-green-600 text-green-700 px-4 py-3 rounded relative"
+                role="alert">
+                <strong class="font-bold text-green-600">Succès!</strong>
+                <span class="block sm:inline text-green-600 ">{{ session('success') }}</span>
+            </div>
         @endif
-        @if(session('error'))
-        <div class="bg-red-100 border  text-red-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold">Erreur!</strong>
-            <span class="block sm:inline">{{ session('error') }}</span>
-        </div>
+        @if (session('error'))
+            <div class="bg-red-100 border  text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Erreur!</strong>
+                <span class="block sm:inline">{{ session('error') }}</span>
+            </div>
         @endif
 
         <div class="container mx-auto flex-1 mt-8">

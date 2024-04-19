@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Coach;
 use App\Models\SubscriptionRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -32,7 +35,7 @@ class CoachController extends Controller
     {
         $coaches = User::where('role', 'coach')->get();
 
-        
+
 
         // $subscribedUsers = User::whereHas('subscriptionRequests', function ($query) {
         //     $query->where('status', 'approved');
@@ -41,13 +44,13 @@ class CoachController extends Controller
         $subscribedUsers = User::whereHas('subscriptionRequests', function ($query) {
             $query->where('status', 'approved');
         })
-        ->with('client') 
-        ->get();
+            ->with('client')
+            ->get();
 
         // Afficher les utilisateurs avec leurs objectifs et niveaux ou effectuer d'autres actions
-  
-           
- 
+
+
+
         // dd($users);
 
         return view('admin.coaches.index', compact('coaches', 'subscribedUsers'));
@@ -65,36 +68,7 @@ class CoachController extends Controller
 
 
 
-    // public function saveSpecialization(Request $request)
-    // {
-    //     $request->validate([
-    //         'specialization' => 'required|string|max:255',
-    //     ]);
-    //     // $user = auth()->user()->coach;
 
-
-    //     // $coach = auth()->user()->role;
-
-    //     $coach = auth()->user()->coach;
-
-    //     // // dd($coach);
-
-    //     // if ($coach !== "coach") {
-    //     //     // Si l'utilisateur n'est pas un coach, rediriger avec un message d'erreur
-    //     //     return redirect()->back()->with('error', 'You are not authorized to perform this action.');
-    //     // }
-
-
-    //     // $request->user()->coach()->create([
-    //     //     'specialization' => $request->specialization,
-    //     //     'user_id' => auth()->user()->id,
-    //     // ]);
-
-    //     $coach->update([
-    //         'specialization' => $request->specialization,
-    //     ]);
-    //     return redirect()->route('coach.dashboard_coach')->with('success', 'Specialization added successfully!');
-    // }
 
 
     public function saveSpecialization(Request $request)
@@ -119,4 +93,24 @@ class CoachController extends Controller
 
         return redirect()->route('coach.dashboard_coach')->with('success', 'Specialization added successfully!');
     }
+
+
+
+
+    // public function showClientsWithCoaches()
+    // {
+    //     // Récupérer l'utilisateur connecté
+    //     $coach = auth()->user()->client->coach_id;
+    //     $user = auth()->user()->id;
+
+    //     $assignCoach = User::findOrfail($coach);
+    //     $clientss = User::findOrFail($user);
+
+    //     $client = Auth::user()->client;
+    //     return view('clients.profile', compact('client'));
+
+    //     return view('clients.coach', compact('assignCoach','clientss','client'));
+    // }
+
+
 }

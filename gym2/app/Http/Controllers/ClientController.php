@@ -18,11 +18,36 @@ class ClientController extends Controller
 
 
 
+    // public function showProfileForm()
+    // {
+    //     $client = Auth::user()->client;
+    //     return view('clients.profile', compact('client'));
+    // }
+
+
+
+
     public function showProfileForm()
     {
+        // Récupérer l'utilisateur connecté
+        $coach = auth()->user()->client->coach_id;
+        $user = auth()->user()->id;
+
+        $assignCoach = User::findOrfail($coach);
+        $clientss = User::findOrFail($user);
+
         $client = Auth::user()->client;
-        return view('clients.profile', compact('client'));
+        // return view('clients.profile', compact('client'));
+
+        return view('clients.profile', compact('assignCoach','clientss','client'));
     }
+
+
+
+
+
+
+
 
     public function showPricing()
     {
@@ -69,7 +94,7 @@ class ClientController extends Controller
         // Créer ou mettre à jour les informations du client
         Auth::user()->client()->updateOrCreate([], $request->only(['age', 'weight', 'height', 'fitness_goal', 'experience_level']));
 
-        return redirect()->route('home')->with('success', 'Profil mis à jour avec succès !');
+        return redirect()->route('subscriptions.index')->with('success', 'Profil mis à jour avec succès !');
     }
 
 
