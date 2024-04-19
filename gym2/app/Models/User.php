@@ -72,4 +72,9 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     {
         return $this->hasMany(CartItem::class);
     }
+
+    public function coach()
+    {
+        return $this->hasOne(Coach::class);
+    }
 }

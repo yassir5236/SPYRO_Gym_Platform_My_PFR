@@ -14,7 +14,7 @@ use App\Models\User;
 
 class ClientController extends Controller
 {
-  
+
 
 
 
@@ -41,7 +41,7 @@ class ClientController extends Controller
     //         'weight' => 'required|numeric',
     //         'height' => 'nullable|numeric', 
     //         'fitness_goal' => 'nullable|string',
-           
+
     //     ]);
 
     //     $request->user()->client()->create([
@@ -55,7 +55,7 @@ class ClientController extends Controller
     // }
 
 
-//store avec update ms fonctione pas
+    //store avec update ms fonctione pas
     public function store(Request $request)
     {
         $request->validate([
@@ -65,14 +65,20 @@ class ClientController extends Controller
             'fitness_goal' => 'required|string', // Champ obligatoire
             'experience_level' => 'required|string', // Champ obligatoire
         ]);
-        
+
         // Créer ou mettre à jour les informations du client
         Auth::user()->client()->updateOrCreate([], $request->only(['age', 'weight', 'height', 'fitness_goal', 'experience_level']));
-        
+
         return redirect()->route('home')->with('success', 'Profil mis à jour avec succès !');
-        
     }
-    
+
+
+    public function showSubscribedUsers()
+    {
+        $subscribedUsers = User::whereHas('subscriptionRequests', function ($query) {
+            $query->where('status', 'accepted');
+        })->get();
+
+        return view('admin.coaches.index', ['subscribedUsers' => $subscribedUsers]);
+    }
 }
-
-

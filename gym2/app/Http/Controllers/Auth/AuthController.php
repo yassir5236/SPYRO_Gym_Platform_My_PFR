@@ -41,7 +41,9 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->role = 'user'; // ou un autre rôle par défaut
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images');
+            $imagePath = $request->file('image')->store('imagesUsers', 'public'); 
+
+            // $imagePath = $request->file('image')->store('images');
             $user->image = $imagePath;
         }
         $user->save();

@@ -78,6 +78,8 @@ Route::post('/subscription-requests', [SubscriptionController::class, 'storeRequ
 Route::post('/subscription-requests/{subscriptionRequest}/approve', [SubscriptionController::class, 'approve'])->name('subscription-requests.approve');
 Route::post('/subscription-requests/{subscriptionRequest}/reject', [SubscriptionController::class, 'reject'])->name('subscription-requests.reject');
 Route::get('/subscriptions/test', [SubscriptionController::class, 'index2'])->name('subscriptions.index');
+Route::get('/admin/coaches', [CoachController::class, 'adminCoaches'])->name('adminCoaches');
+
 
 // routes/web.php
 // Route::middleware(['auth', 'admin'])->group(function () {
@@ -128,6 +130,10 @@ Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
 
 Route::get('/dashboard_coach',[CoachController::class,'dashboard'])->name('coach.dashboard_coach');
 Route::get('/trainers',[CoachController::class,'showtrainers'])->name('showtrainers');
+Route::get('/coach/specialization',[CoachController::class,'specializationForm'])->name('coach.specialization.form');
+Route::post('/coach/specialization/submit',[CoachController::class,'saveSpecialization'])->name('coach.specialization.submit');
+
+
 
 
 Route::resource('products', ProductController::class);

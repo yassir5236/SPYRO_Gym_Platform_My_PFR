@@ -84,7 +84,7 @@
                                     </button>
                                 </form>
 
-                                <a href="">
+                                {{-- <a href="">
                                     <svg fill="#ffae00" width="30px" height="30px" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -95,7 +95,7 @@
                                             </path>
                                         </g>
                                     </svg>
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
                     </div>
