@@ -150,13 +150,22 @@ Route::resource('categories', CategoryController::class);
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/clients/index', [ProductController::class, 'indexProductClient'])->name('indexProductClient');
 
+
+
+
+Route::post('/products/filter', [ProductController::class, 'indexProductClient2'])->name('filter.products');
+
+
+
+
+
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
+// Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
 Route::post('/products/search', [ProductController::class, 'searchProductClient'])->name('searchProductClient');
 
 

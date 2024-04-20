@@ -25,6 +25,7 @@ class ProductController extends Controller
         return view('admin.products.index', compact('products', 'categories'));
     }
 
+
     public function indexProductClient(Request $request)
     {
         $categoryId = $request->input('category_id');
@@ -37,12 +38,17 @@ class ProductController extends Controller
 
 
 
+
+
+
+
+
     public function show($id)
     {
         $product = Product::findOrFail($id);
         return view('clients.products.detail', compact('product'));
     }
-    
+
 
 
 
@@ -155,12 +161,12 @@ class ProductController extends Controller
     // public function searchProductClient($searchinput)
     // {
     //     $search = 'Karleigh'; // Utiliser le nom correct du paramètre
-    
+
     //     $products = Product::where('name', 'like', '%' . $search . '%')->get();
-    
+
     //     return response()->json(['products'=>$products]);
     // }
-    
+
 
 
     public function searchProductClient(Request $request)
@@ -177,10 +183,31 @@ class ProductController extends Controller
 
 
 
+    public function indexProductClient2(Request $request)
+    {
+        $categoryId = $request->input('category_id');
+        $products = $categoryId ? Product::where('category_id', $categoryId)->get() : Product::all();
+        $categories = Category::all();
+        return response()->json(['products' => $products,'categories' => $categories]);
+
+        // return view('clients.products.index', compact('products', 'categories'));
+    }
 
 
-
-
-
-
+//     public function indexProductClient2(Request $request)
+// {
+//     $categoryId = $request->input('category_id');
+    
+//     // Vérifiez si une catégorie a été sélectionnée
+//     if ($categoryId) {
+//         // Filtrer les produits par catégorie
+//         $products = Product::where('category_id', $categoryId)->get();
+//     } else {
+//         // Si aucune catégorie n'est sélectionnée, retournez tous les produits
+//         $products = Product::all();
+//     }
+    
+//     // Retourner les produits sous forme de réponse JSON
+//     return response()->json(['products' => $products]);
+// }
 }
