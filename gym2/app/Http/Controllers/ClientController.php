@@ -94,7 +94,7 @@ class ClientController extends Controller
         // Créer ou mettre à jour les informations du client
         Auth::user()->client()->updateOrCreate([], $request->only(['age', 'weight', 'height', 'fitness_goal', 'experience_level']));
 
-        return redirect()->route('subscriptions.index')->with('success', 'Profil mis à jour avec succès !');
+        return redirect()->route('clients.showProfileForm')->with('success', 'Profil mis à jour avec succès !');
     }
 
 

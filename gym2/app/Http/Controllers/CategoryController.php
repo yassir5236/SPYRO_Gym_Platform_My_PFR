@@ -23,18 +23,18 @@ class CategoryController extends Controller
     {
 
         return view('admin.categories.create');
-
     }
+
+
+
 
 
     public function store(Request $request)
     {
-        // Validation des données du formulaire
-        // dd($request);
-
+        
         $request->validate([
             'name' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Limitez le type et la taille de l'image
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
 
         // Traitement de l'image téléchargée
@@ -50,9 +50,40 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Le category a été créé avec succès.');
     }
 
- 
 
- 
+
+
+
+
+
+    public function edit(Category $category)
+    {
+        return view('admin.categories.edit', compact('category'));
+    }
+
+
+
+
+
+    public function update(Request $request, Category $category)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|', 
+        ]);
+
+        $category->name = $request->name;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('categories', 'public');
+            $category->image_url = $imagePath;
+        }
+
+        $category->save();
+
+        return redirect()->route('categories.index')->with('success', 'La catégorie a été mise à jour avec succès.');
+    }
+
 
     // Supprimer une catégorie
     public function destroy(Category $category)

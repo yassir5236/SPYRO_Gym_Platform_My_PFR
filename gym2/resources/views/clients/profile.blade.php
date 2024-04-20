@@ -1,71 +1,8 @@
 @extends('layout')
 
-
-
-
-{{-- @section('content')
-<div class="  max-w-7xl mx-auto p-6 lg:p-8">
-       <div class=" text-black flex justify-center">
-            <h1>profile</h1>
-        </div>
-
-        <div class="mt-16  flex justify-center text-black">THIS IS THE profile PAGE </div> 
-
-
-</div>
-@endsection --}}
-
-
-
-<!-- resources/views/profile.blade.php -->
-
-
-
-
-{{-- @section('content')
-    <div class="container mx-auto">
-        <div class="max-w-md mx-auto my-10 bg-gray-900 border-2 border-red-600 p-5 rounded-md shadow-md">
-            <h2 class="text-2xl font-semibold text-white text-center mb-5">Compléter votre profil</h2>
-
-            <form method="POST" action="{{ route('profile.store') }}">
-                @csrf
-
-                <!-- Champs pour les informations supplémentaires -->
-                <div class="mb-4">
-                    <label class="block text-white text-sm font-bold mb-2" for="age">Âge</label>
-                    <input id="age" type="number" class="form-input w-full" name="age" required autofocus>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-white text-sm font-bold mb-2" for="weight">Poids (en kg)</label>
-                    <input id="weight" type="number" class="form-input w-full" name="weight" required>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-white text-sm font-bold mb-2" for="height">Taille (en cm)</label>
-                    <input id="height" type="number" class="form-input w-full" name="height">
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-white text-sm font-bold mb-2" for="fitness_goal">Objectif de fitness</label>
-                    <input id="fitness_goal" type="text" class="form-input w-full" name="fitness_goal">
-                </div>
-
-                <!-- Ajoutez d'autres champs si nécessaire -->
-
-                <div class="flex justify-center">
-                    <button type="submit" class="px-4 py-2 bg-red-800 text-white rounded hover:bg-red-600">Enregistrer</button>
-                </div>
-            </form>
-        </div>
-    </div>
-@endsection --}}
-
-
-
 @section('content')
 <h1 class="text-5xl text-gray-200 text-center mt-20">Welcome your profile</h1>
-<div class="flex justify-between mt-10 bg-cover bg-no-repeat" style="background-image: url('{{ asset('storage/images/HsFt0OiVv6xU1SGhBQOgKFeRp3RApzhu0IX0igt6.jpg') }}'); background-size: 100% auto;">
+<div class="flex justify-between mt-10 bg-cover bg-no-repeat" style="background-image: url('{{ asset('storage/images/client_home.png') }}'); background-size: 100% auto;">
     <div class="min-h-screen  bg-right rounded-lg overflow-hidden"
         >
         <div class="container mx-auto ">
@@ -136,7 +73,7 @@
             class="max-w-xs container bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
             <div>
                 <span
-                    class="text-gray-200 text-xs font-bold rounded-lg bg-green-500 inline-block mt-4 ml-4 py-1.5 px-4 cursor-pointer">Coach</span>
+                    class="text-gray-200 text-xs font-bold rounded-lg bg-green-500 inline-block mt-4 ml-4 py-1.5 px-4 cursor-pointer">Your Coach</span>
                 <h1
                     class="text-2xl mt-2 ml-4 font-bold text-gray-200 cursor-pointer hover:text-gray-100 transition duration-100">
                     {{ $assignCoach->name }}</h1>
