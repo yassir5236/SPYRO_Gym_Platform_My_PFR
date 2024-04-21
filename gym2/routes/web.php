@@ -91,6 +91,9 @@ Route::post('/assign-coaches', [AdminController::class, 'assignCoach'])->name('a
     Route::get('/admin/subscription-requests', [SubscriptionController::class, 'showSubscriptionRequests'])->name('admin.subscription-requests.index');
     Route::post('/admin/subscription-requests/{subscriptionRequest}/approve', [SubscriptionController::class, 'approve'])->name('subscription-requests.approve');
     Route::post('/admin/subscription-requests/{subscriptionRequest}/reject', [SubscriptionController::class, 'reject'])->name('subscription-requests.reject');
+
+    Route::get('/admin/statistics', [AdminController::class, 'getStatistics'])->name('admin.getStatistics');
+
 // });
 
 

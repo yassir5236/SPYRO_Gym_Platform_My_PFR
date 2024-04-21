@@ -9,12 +9,11 @@
             <div class="flex h-screen  " :class="{ 'overflow-hidden': isSideMenuOpen }">
 
 
-
                 <div class="flex flex-col flex-1 w-full overflow-y-auto">
 
                     <main class="">
                         <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-black border-4 border-red-400">
-
+            
                             <div class="grid grid-cols-12 gap-6">
                                 <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
                                     <div class="col-span-12 mt-8 	">
@@ -40,9 +39,8 @@
                                                     </div>
                                                     <div class="ml-2 w-full flex-1">
                                                         <div>
-                                                            <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
-
-                                                            <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                                            <div class="mt-3 text-3xl font-bold leading-8"> {{ $subscribedUsersCount }}</div>
+                                                            <div class="mt-1 text-base text-gray-600">Subscribed Users</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -65,9 +63,8 @@
                                                     </div>
                                                     <div class="ml-2 w-full flex-1">
                                                         <div>
-                                                            <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
-
-                                                            <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                                            <div class="mt-3 text-3xl font-bold leading-8">{{ $usersWithoutSubscriptionCount }}</div>
+                                                            <div class="mt-1 text-base text-gray-600">All users ( Coach and clients)</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,9 +90,10 @@
                                                     </div>
                                                     <div class="ml-2 w-full flex-1">
                                                         <div>
-                                                            <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
-
-                                                            <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                                            <div class="mt-3 text-3xl font-bold leading-8">{{ $coachesCount }}</div>
+                                                           
+                                                        
+                                                            <div class="mt-1 text-base text-gray-600">Coaches</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -121,17 +119,18 @@
                                                     </div>
                                                     <div class="ml-2 w-full flex-1">
                                                         <div>
-                                                            <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
-
-                                                            <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                                            <div class="mt-3 text-3xl font-bold leading-8">{{ $productsCount }}</div>
+                                                            <div class="mt-1 text-base text-gray-600">Products</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
-
+            
                                         </div>
                                     </div>
                                     <div class="col-span-12 mt-5 ">
+                                        
+
                                         <div class="grid gap-2 grid-cols-1 lg:grid-cols-2 	">
                                             <div class="bg-white shadow-lg" id="chartpie"></div>
                                         </div>
@@ -142,139 +141,60 @@
                         </div>
                     </main>
                 </div>
+            
             </div>
+
             <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-            <script>
-                function data() {
+           
 
-                    return {
-
-                        isSideMenuOpen: false,
-                        toggleSideMenu() {
-                            this.isSideMenuOpen = !this.isSideMenuOpen
-                        },
-                        closeSideMenu() {
-                            this.isSideMenuOpen = false
-                        },
-                        isNotificationsMenuOpen: false,
-                        toggleNotificationsMenu() {
-                            this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen
-                        },
-                        closeNotificationsMenu() {
-                            this.isNotificationsMenuOpen = false
-                        },
-                        isProfileMenuOpen: false,
-                        toggleProfileMenu() {
-                            this.isProfileMenuOpen = !this.isProfileMenuOpen
-                        },
-                        closeProfileMenu() {
-                            this.isProfileMenuOpen = false
-                        },
-                        isPagesMenuOpen: false,
-                        togglePagesMenu() {
-                            this.isPagesMenuOpen = !this.isPagesMenuOpen
-                        },
-
-                    }
-                }
-            </script>
-            <script>
-                var chart = document.querySelector('#chartline')
-                var options = {
-                    series: [{
-                        name: 'TEAM A',
-                        type: 'area',
-                        data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33]
-                    }, {
-                        name: 'TEAM B',
-                        type: 'line',
-                        data: [55, 69, 45, 61, 43, 54, 37, 52, 44, 61, 43]
-                    }],
-                    chart: {
-                        height: 350,
-                        type: 'line',
-                        zoom: {
-                            enabled: false
-                        }
-                    },
-                    stroke: {
-                        curve: 'smooth'
-                    },
-                    fill: {
-                        type: 'solid',
-                        opacity: [0.35, 1],
-                    },
-                    labels: ['Dec 01', 'Dec 02', 'Dec 03', 'Dec 04', 'Dec 05', 'Dec 06', 'Dec 07', 'Dec 08', 'Dec 09 ',
-                        'Dec 10', 'Dec 11'
-                    ],
-                    markers: {
-                        size: 0
-                    },
-                    yaxis: [{
-                            title: {
-                                text: 'Series A',
-                            },
-                        },
-                        {
-                            opposite: true,
-                            title: {
-                                text: 'Series B',
-                            },
-                        },
-                    ],
-                    tooltip: {
-                        shared: true,
-                        intersect: false,
-                        y: {
-                            formatter: function(y) {
-                                if (typeof y !== "undefined") {
-                                    return y.toFixed(0) + " points";
-                                }
-                                return y;
-                            }
-                        }
-                    }
-                };
-                var chart = new ApexCharts(chart, options);
-                chart.render();
-            </script>
-            <script>
-                var chart = document.querySelector('#chartpie')
-                var options = {
-                    series: [44, 55, 67, 83],
-                    chart: {
-                        height: 350,
-                        type: 'radialBar',
-                    },
-                    plotOptions: {
-                        radialBar: {
-                            dataLabels: {
-                                name: {
-                                    fontSize: '22px',
-                                },
-                                value: {
-                                    fontSize: '16px',
-                                },
-                                total: {
-                                    show: true,
-                                    label: 'Total',
-                                    formatter: function(w) {
-                                        // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                                        return 249
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
-                };
-                var chart = new ApexCharts(chart, options);
-                chart.render();
-            </script>
 
 
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -445,4 +365,49 @@
             </div>
         </div>
     </div>
+
+
+
+
+    <script>
+        var subscribedUsersCount = {{ $subscribedUsersCount }};
+        var usersWithoutSubscriptionCount = {{ $usersWithoutSubscriptionCount }};
+        var coachesCount = {{ $coachesCount }};
+        var productsCount = {{ $productsCount }};
+    
+        var chart = document.querySelector('#chartpie');
+        var options = {
+            series: [subscribedUsersCount, usersWithoutSubscriptionCount, coachesCount, productsCount],
+            chart: {
+                height: 350,
+                type: 'radialBar',
+            },
+            plotOptions: {
+                radialBar: {
+                    dataLabels: {
+                        name: {
+                            fontSize: '22px',
+                        },
+                        value: {
+                            fontSize: '16px',
+                        },
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            formatter: function(w) {
+                                return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                            }
+                        }
+                    }
+                }
+            },
+            labels: ['Subscribed Users', 'Users Without Subscription', 'Coaches', 'Products'],
+        };
+        var chart = new ApexCharts(chart, options);
+        chart.render();
+    </script>
+
+    
+
+    
 @endsection
