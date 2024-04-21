@@ -90,7 +90,7 @@ class AuthController extends Controller
             // Redirection en fonction du rôle de l'utilisateur
             switch ($user->role) {
                 case 'admin':
-                    return redirect()->route('admin.subscription-requests.index');
+                    return redirect()->route('admin.getStatistics');
                     break;
                 case 'coach':
                     return redirect()->route('coach.dashboard_coach');
