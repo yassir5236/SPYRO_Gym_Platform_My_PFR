@@ -35,23 +35,11 @@ class CoachController extends Controller
     {
         $coaches = User::where('role', 'coach')->get();
 
-
-
-        // $subscribedUsers = User::whereHas('subscriptionRequests', function ($query) {
-        //     $query->where('status', 'approved');
-        // })->get();
-
         $subscribedUsers = User::whereHas('subscriptionRequests', function ($query) {
             $query->where('status', 'approved');
         })
             ->with('client')
             ->get();
-
-        // Afficher les utilisateurs avec leurs objectifs et niveaux ou effectuer d'autres actions
-
-
-
-        // dd($users);
 
         return view('admin.coaches.index', compact('coaches', 'subscribedUsers'));
     }
@@ -111,6 +99,38 @@ class CoachController extends Controller
 
     //     return view('clients.coach', compact('assignCoach','clientss','client'));
     // }
+
+
+
+    public function getStatistics()
+{
+    $subscribedUsersCount = SubscriptionRequest::where('status', 'approved')->count();
+
+    $totalusers =User::where('role', 'user')
+    ->count();
+    
+
+
+    $coachesCount = User::where('role','coach')->count();
+    // dd($coachesCount);
+
+    
+
+    $coachId=auth()->user()->id;
+    // dd($coachId);
+    $usersAssign =client::where('coach_id',$coachId)->count();
+
+
+
+    return view('coach.dashboard_coach', [  
+        'subscribedUsersCount'=>$subscribedUsersCount,
+        'totalusers'=>$totalusers,
+        'coachesCount' => $coachesCount,
+        'usersAssign' => $usersAssign,
+    ]);
+
+
+}
 
 
 }

@@ -30,9 +30,9 @@
                         </div>
                         <div class="ml-2 w-full flex-1">
                             <div>
-                                <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+                                <div class="mt-3 text-3xl font-bold leading-8">{{$subscribedUsersCount}}</div>
 
-                                <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                <div class="mt-1 text-base text-gray-600">Subscribed Users</div>
                             </div>
                         </div>
                     </div>
@@ -53,9 +53,9 @@
                         </div>
                         <div class="ml-2 w-full flex-1">
                             <div>
-                                <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+                                <div class="mt-3 text-3xl font-bold leading-8">{{$totalusers}}</div>
 
-                                <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                <div class="mt-1 text-base text-gray-600">Total users</div>
                             </div>
                         </div>
                     </div>
@@ -78,9 +78,9 @@
                         </div>
                         <div class="ml-2 w-full flex-1">
                             <div>
-                                <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+                                <div class="mt-3 text-3xl font-bold leading-8">{{$coachesCount}}</div>
 
-                                <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                <div class="mt-1 text-base text-gray-600">Coaches</div>
                             </div>
                         </div>
                     </div>
@@ -103,9 +103,10 @@
                         </div>
                         <div class="ml-2 w-full flex-1">
                             <div>
-                                <div class="mt-3 text-3xl font-bold leading-8">4.510</div>
+                               
+                                <div class="mt-3 text-3xl font-bold leading-8">{{$usersAssign}}</div>
 
-                                <div class="mt-1 text-base text-gray-600">Item Sales</div>
+                                <div class="mt-1 text-base text-gray-600">Users Assign</div>
                             </div>
                         </div>
                     </div>

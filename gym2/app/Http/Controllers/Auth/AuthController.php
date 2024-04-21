@@ -93,7 +93,7 @@ class AuthController extends Controller
                     return redirect()->route('admin.getStatistics');
                     break;
                 case 'coach':
-                    return redirect()->route('coach.dashboard_coach');
+                    return redirect()->route('coach.statistics');
                     break;
                 case 'user':
                     return redirect()->route('clients.showProfileForm');

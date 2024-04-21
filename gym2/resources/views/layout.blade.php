@@ -205,7 +205,7 @@
                                 @if (auth()->user()->role === 'coach')
                                     <div
                                         class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                        <a href="{{ route('coach.dashboard_coach') }}">Dashboard</a>
+                                        <a href="{{ route('coach.statistics') }}">Dashboard</a>
                                     </div>
 
                                     <div

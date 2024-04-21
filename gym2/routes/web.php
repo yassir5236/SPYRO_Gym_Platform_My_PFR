@@ -145,6 +145,9 @@ Route::get('/trainers',[CoachController::class,'showtrainers'])->name('showtrain
 Route::get('/coach/specialization',[CoachController::class,'specializationForm'])->name('coach.specialization.form');
 Route::post('/coach/specialization/submit',[CoachController::class,'saveSpecialization'])->name('coach.specialization.submit');
 
+Route::get('/coach/statistics',[CoachController::class,'getStatistics'])->name('coach.statistics');
+
+
 
 
 
