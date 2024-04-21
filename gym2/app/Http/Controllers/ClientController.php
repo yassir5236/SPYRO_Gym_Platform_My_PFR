@@ -30,17 +30,21 @@ class ClientController extends Controller
     public function showProfileForm()
     {
         // Récupérer l'utilisateur connecté
-        $coach = auth()->user()->client->coach_id;
+        $client = auth()->user()->client;
+    
+        if ($client && $client->coach_id) {
+            $coach = $client->coach_id;
+            $assignCoach = User::findOrFail($coach);
+        } else {
+            $assignCoach = null; // Aucun coach assigné
+        }
+    
         $user = auth()->user()->id;
-
-        $assignCoach = User::findOrfail($coach);
         $clientss = User::findOrFail($user);
-
-        $client = Auth::user()->client;
-        // return view('clients.profile', compact('client'));
-
-        return view('clients.profile', compact('assignCoach','clientss','client'));
+    
+        return view('clients.profile', compact('assignCoach', 'clientss', 'client'));
     }
+    
 
 
 

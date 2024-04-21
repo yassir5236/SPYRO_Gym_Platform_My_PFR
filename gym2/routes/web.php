@@ -16,6 +16,7 @@ use App\http\Controllers\CoachController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -47,6 +48,9 @@ Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkE
 Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 Route::get('/coach', [CoachController::class, 'showClientsWithCoaches'])->name('showClientsWithCoaches');
+
+Route::post('/contact', [ContactController::class, 'sendMessage'])->name('contact.send');
+
 
 
 

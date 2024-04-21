@@ -72,7 +72,7 @@
 
             <div class="bg-gray-900 p-8 rounded-lg shadow-lg  flex flex-col align-center items-center">
                 <h1 class="text-4xl text-gray-200 text-center mb-10 ">Coach informations</h1>
-
+                @if(isset($assignCoach))
                 <div
                     class="max-w-xs container bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl shadow-lg transform transition border  duration-500 hover:scale-105 hover:shadow-2xl">
                     <div>
@@ -114,6 +114,9 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <h1 class="text-xl text-red-500">you have no coash assign yet !</h1>
+                @endif
             </div>
 
         </div>

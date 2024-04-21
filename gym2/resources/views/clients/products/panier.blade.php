@@ -68,10 +68,24 @@
 
 
 
+    <div class="mt-10" style="position: relative; display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <img loading="lazy" src="{{ asset('storage/images/bg.png') }}" style="object-fit: cover; width: 100%; height: 100%;" />
+        <div style="position: absolute; top: 60%; left: 43%; transform: translate(-50%, -50%); text-align: center; border-radius: 25px;">
+            <p style="font-size: 40px; color: white;">Keep  calm and make a shop from <span class="text-red-600 font-semibold">SPYRO</span></p>
+        </div>
+    </div>
 
 
 
-{{-- just style --}}
+
+
+
+
+
+
+
+
+
 
 <div class="cart-sidebar fixed inset-y-0 right-0 w-96 bg-gradient-to-r from-gray-900 to-green-900  text-white shadow-lg overflow-y-auto  border p-6">
         <!-- Sidebar header -->
@@ -160,15 +174,6 @@
         });
     });
 </script>  
-
-
-
-
-
-
-
-
-
 
 
 
