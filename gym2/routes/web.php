@@ -147,6 +147,9 @@ Route::post('/coach/specialization/submit',[CoachController::class,'saveSpeciali
 
 Route::get('/coach/statistics',[CoachController::class,'getStatistics'])->name('coach.statistics');
 
+Route::delete('/posts/{post}/admin-delete',[PostController::class,'adminDelete'])->name('posts.admin-delete');
+
+
 
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');

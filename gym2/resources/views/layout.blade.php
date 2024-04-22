@@ -111,8 +111,9 @@
                                     <a href="{{ route('gallery-images.index') }}" class="p-2">Gallery</a>
                                 </div>
                                 <div
-                                    class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    Community</div>
+                                        class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                        <a href="{{route('posts.index')}}">Community</a>
+                                    </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                     <a href="{{ route('admin.subscriptions.index') }}">Subscription</a>
