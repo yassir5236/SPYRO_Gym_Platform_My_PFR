@@ -146,9 +146,9 @@
                                 </div>
 
                                 <div
-                                    class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    Community</div>
-                                {{-- <div class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105"><a href="{{route('admin.subscriptions.index')}}">Subscription</a></div> --}}
+                                        class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
+                                        <a href="{{route('posts.index')}}">Community</a>
+                                    </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
                                     <a href="{{ route('subscriptions.index') }}">Subscription</a>
@@ -215,7 +215,7 @@
 
                                     <div
                                         class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                        Community
+                                        <a href="{{route('posts.index')}}">Community</a>
                                     </div>
 
                                     <div

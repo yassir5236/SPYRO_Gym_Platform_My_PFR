@@ -82,4 +82,11 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     // {
     //     return $this->belongsTo(Coach::class);
     // }
+
+
+    public function posts()
+{
+    return $this->hasMany(Post::class);
+}
+
 }
