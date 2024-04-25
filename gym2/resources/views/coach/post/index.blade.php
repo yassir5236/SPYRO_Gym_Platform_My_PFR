@@ -144,7 +144,7 @@
             @endforeach
         </div>
     </div>
-    <div class="flex justify-center ">
+    <div  id="pagination"    class="w-full pb-6 mr-6">
         pagination {{ $posts->links() }}
 
     </div>
@@ -340,6 +340,9 @@
             // Vérifiez si l'entrée de recherche n'est pas vide
             if (searchInput.trim() !== '') {
                 document.getElementById('normalPostsContainer').classList.add('hidden');
+                document.getElementById('pagination').classList.add('hidden');
+
+
 
                 let xhr = new XMLHttpRequest();
                 xhr.open('POST', '{{ route('posts.search') }}', true);
@@ -390,7 +393,7 @@
                             } else {
                                 // Affichez un message si aucun résultat n'est trouvé
                                 let searchResults = document.getElementById('searchResults');
-                                searchResults.innerHTML = '<p>Aucun résultat trouvé.</p>';
+                                searchResults.innerHTML = '<p class="text-white text-center">Aucun résultat trouvé.</p>';
                             }
                         } else {
                             console.error('Erreur : ' + xhr.status);
@@ -400,6 +403,8 @@
                 xhr.send('searchTerm=' + encodeURIComponent(searchInput));
             } else {
                 document.getElementById('normalPostsContainer').classList.remove('hidden');
+                document.getElementById('pagination').classList.remove('hidden');
+
 
                 let searchResults = document.getElementById('searchResults');
                 searchResults.innerHTML = '';
