@@ -19,7 +19,7 @@
             </div>
 
             <div
-                class="overflow-hidden relative flex-col justify-center self-start px-7 py-4 mt-8 text-2xl bg-red-600 text-white aspect-[4.11] rounded-md w-40 max-md:px-5">
+                class="overflow-hidden relative flex-col justify-center self-start px-2 py-5 mt-8 text-2xl bg-red-600 text-white aspect-[4.11] rounded-md w-40 max-md:px-5">
                 <a href="{{ route('register') }}">Start free trial</a>
 
             </div>

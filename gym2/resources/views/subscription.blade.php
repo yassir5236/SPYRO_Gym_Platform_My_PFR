@@ -59,7 +59,7 @@ background-position: center;">
 
                                 <a href="{{ route('register') }}"
                                     class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-300 ease-in-out w-full bg-red-600 hover:bg-red-400 text-white focus:outline-none focus-visible:ring-2">
-                                    Call To Action
+                                    Register Now
                                 </a>
                             </div>
                         </div>

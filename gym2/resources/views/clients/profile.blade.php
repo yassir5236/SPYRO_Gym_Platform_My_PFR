@@ -4,7 +4,7 @@
     <h1 class="text-5xl text-gray-200 text-center mt-20">Welcome your profile</h1>
     <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20">
-            <div class="min-h-screen  bg-right rounded-lg overflow-hidden">
+            <div class="min-h-fit  bg-right rounded-lg overflow-hidden">
                 <div class="container mx-auto ">
                     <div class="bg-gray-900 p-8 rounded-lg shadow-lg">
                         <h2 class="text-2xl font-semibold text-white text-center mb-5">Compléter votre profil</h2>
@@ -70,8 +70,9 @@
             </div>
 
 
-            <div class="bg-gray-900 p-8 rounded-lg shadow-lg  flex flex-col align-center items-center">
-                <h1 class="text-4xl text-gray-200 text-center mb-10 ">Coach informations</h1>
+            <div class="bg-gray-900 p-8 rounded-lg shadow-lg  max-h-full
+             flex flex-col align-center items-center">
+                <h1 class="text-4xl text-gray-200 text-center mb-4 ">Coach informations</h1>
                 @if(isset($assignCoach))
                 <div
                     class="max-w-xs container bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl shadow-lg transform transition border  duration-500 hover:scale-105 hover:shadow-2xl">

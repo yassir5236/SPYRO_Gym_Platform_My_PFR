@@ -86,6 +86,7 @@
                                 </form>
                             @endif
 
+                            @if(auth()->user()->role=='admin')
                             <form action="{{ route('posts.admin-delete', $post->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -112,6 +113,7 @@
                                     </svg>
                                 </button>
                             </form>
+                            @endif
 
 
 

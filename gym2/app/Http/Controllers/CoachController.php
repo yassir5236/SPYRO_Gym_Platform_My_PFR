@@ -49,10 +49,29 @@ class CoachController extends Controller
 
     public function specializationForm()
     {
-
-        return view('coach.specialization');
+        $coachID = auth()->user()->id;
+        $clients = Client::where('coach_id', $coachID)->get();
+    
+        // Parcourir chaque client pour récupérer les détails de l'utilisateur associé
+        $users = [];
+        foreach ($clients as $client) {
+            // Récupérer l'utilisateur associé à user_id
+            $user = User::find($client->user_id);
+            
+            // Ajouter les détails de l'utilisateur au tableau des utilisateurs
+            $users[] = [
+                'name' => $user->name,
+                'email' => $user->email,
+                'image' => $user->image,
+            ];
+        }
+    
+        // Vérifiez les détails des utilisateurs récupérés
+        // dd($users);
+    
+        return view('coach.specialization', compact('clients', 'users'));
     }
-
+    
 
 
 
@@ -79,7 +98,9 @@ class CoachController extends Controller
             ]);
         }
 
-        return redirect()->route('coach.dashboard_coach')->with('success', 'Specialization added successfully!');
+
+
+        return redirect()->route('coach.statistics')->with('success', 'Specialization added successfully!');
     }
 
 
@@ -128,6 +149,19 @@ class CoachController extends Controller
         'coachesCount' => $coachesCount,
         'usersAssign' => $usersAssign,
     ]);
+
+
+}
+
+
+
+
+
+public function getUsers(){
+$coachID=auth()->user()->id;
+$users=client::where('coach_id',$coachID);
+
+dd($users);
 
 
 }
