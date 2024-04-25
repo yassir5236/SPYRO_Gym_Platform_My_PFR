@@ -47,7 +47,7 @@ class CoachController extends Controller
 
 
 
-    public function specializationForm()
+    public function Profile()
     {
         $coachID = auth()->user()->id;
         $clients = Client::where('coach_id', $coachID)->get();

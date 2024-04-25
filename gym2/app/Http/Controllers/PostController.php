@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -8,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(2);
         return view('coach.post.index', compact('posts'));
     }
 
@@ -96,5 +97,19 @@ class PostController extends Controller
     $post->delete();
 
     return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
+}
+
+
+
+
+public function search(Request $request)
+{
+    $searchTerm = $request->input('searchTerm');
+
+    // Recherche des posts par titre
+    $posts = Post::where('title', 'like', '%' . $searchTerm . '%')->get();
+
+    // Renvoi des résultats au format JSON
+    return response()->json(['posts' => $posts]);
 }
 }

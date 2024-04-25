@@ -9,6 +9,7 @@ class Post extends Model
     use SoftDeletes;
 
     protected $fillable = ['title', 'content', 'image', 'user_id'];
+    public $timestamps = true;
 
     public function user()
     {

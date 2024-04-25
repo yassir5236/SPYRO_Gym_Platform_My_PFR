@@ -209,10 +209,6 @@
                                         <a href="{{ route('coach.statistics') }}">Dashboard</a>
                                     </div>
 
-                                    <div
-                                        class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                        <a href="{{ route('showtrainers') }}">Trainers</a>
-                                    </div>
 
                                     <div
                                         class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
@@ -221,7 +217,7 @@
 
                                     <div
                                         class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                        <a href="{{ route('coach.specialization.form') }}">specialization</a>
+                                        <a href="{{ route('coach.Profile.form') }}">Profile</a>
                                     </div>
 
 

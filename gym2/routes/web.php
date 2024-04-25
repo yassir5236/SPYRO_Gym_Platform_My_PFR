@@ -142,12 +142,16 @@ Route::get('/', [StaticController::class, 'showWelcome'])->name('showWelcome');
 
 Route::get('/dashboard_coach',[CoachController::class,'dashboard'])->name('coach.dashboard_coach');
 Route::get('/trainers',[CoachController::class,'showtrainers'])->name('showtrainers');
-Route::get('/coach/specialization',[CoachController::class,'specializationForm'])->name('coach.specialization.form');
+Route::get('/coach/specialization',[CoachController::class,'Profile'])->name('coach.Profile.form');
 Route::post('/coach/specialization/submit',[CoachController::class,'saveSpecialization'])->name('coach.specialization.submit');
 
 Route::get('/coach/statistics',[CoachController::class,'getStatistics'])->name('coach.statistics');
 
 Route::delete('/posts/{post}/admin-delete',[PostController::class,'adminDelete'])->name('posts.admin-delete');
+
+Route::post('/posts/search',[PostController::class,'search'])->name('posts.search');
+
+
 
 
 

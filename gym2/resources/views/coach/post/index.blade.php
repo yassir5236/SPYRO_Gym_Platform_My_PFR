@@ -6,9 +6,20 @@
             un nouveau post</a>
     @endif
 
+    <div class="flex justify-start ">
+        <input type="text" id="searchInput" placeholder="Rechercher..." class="border border-gray-100  py-2 px-4 bg-gradient-to-r from-red-600 to-gray-800 text-white placeholder-white rounded-md leading-tight focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out">
+    </div>
+    
 
-    <div class="w-full flex justify-center  align-center">
-        <div class="w-2/4 mb-10 mt-10">
+
+
+
+    <div id="searchResults">
+        <!-- Les résultats de la recherche seront affichés ici -->
+    </div>
+
+    <div id="normalPostsContainer" class="w-full flex justify-center align-center mb-20 mt-20">
+        <div class="w-2/4 ">
             @foreach ($posts as $post)
                 <div class="bg-white shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 mb-6">
                     <div class="relative">
@@ -20,10 +31,19 @@
                             </div>
                         </a>
                     </div>
+
+
                     <div class="px-6 py-4 mb-auto">
                         <a href="#"
                             class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{ $post->title }}</a>
-                        <p class="text-gray-500 text-sm">{{ $post->content }}</p>
+                        <p class="text-gray-500 text-sm" id="postContent{{ $post->id }}">
+                            {{ substr($post->content, 0, 100) }}</p>
+                        <p class="text-gray-500 text-sm hidden" id="allContent{{ $post->id }}">{{ $post->content }}</p>
+                        @if (strlen($post->content) > 100)
+                            <button class="voir-plus text-blue-400" data-post-id="{{ $post->id }}">Voir plus</button>
+                            <button class="masker text-red-400" data-post-id="{{ $post->id }}"
+                                style="display: none;">Masker</button>
+                        @endif
                     </div>
                     <div class="px-6 py-3 flex items-center justify-between bg-gray-100">
                         <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
@@ -86,33 +106,33 @@
                                 </form>
                             @endif
 
-                            @if(auth()->user()->role=='admin')
-                            <form action="{{ route('posts.admin-delete', $post->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                   >
-                                    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier">
-                                            <path d="M22 2L2 22" stroke="#ff570f" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                            <path opacity="0.4"
-                                                d="M20.68 8.70996V19.71C20.68 21.72 19.24 22.57 17.48 21.59L11 17.54"
-                                                stroke="#ff570f" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                            </path>
-                                            <path
-                                                d="M3.32031 19.95V5.86C3.32031 3.74 5.05031 2 7.18031 2H16.8303C18.0403 2 19.1203 2.56 19.8303 3.44"
-                                                stroke="#ff570f" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                            </path>
-                                        </g>
-                                    </svg>
-                                </button>
-                            </form>
+                            @if (auth()->user()->role == 'admin')
+                                <form action="{{ route('posts.admin-delete', $post->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">
+                                        <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                            </g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path d="M22 2L2 22" stroke="#ff570f" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path opacity="0.4"
+                                                    d="M20.68 8.70996V19.71C20.68 21.72 19.24 22.57 17.48 21.59L11 17.54"
+                                                    stroke="#ff570f" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                </path>
+                                                <path
+                                                    d="M3.32031 19.95V5.86C3.32031 3.74 5.05031 2 7.18031 2H16.8303C18.0403 2 19.1203 2.56 19.8303 3.44"
+                                                    stroke="#ff570f" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </form>
                             @endif
 
 
@@ -124,4 +144,271 @@
             @endforeach
         </div>
     </div>
+    <div class="flex justify-center ">
+        pagination {{ $posts->links() }}
+
+    </div>
+
+
+{{-- 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const voirPlusButtons = document.querySelectorAll('.voir-plus');
+            const maskerButtons = document.querySelectorAll('.masker');
+
+            voirPlusButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const postId = this.getAttribute('data-post-id');
+                    const postContent = document.getElementById('postContent' + postId);
+                    const allContent = document.getElementById('allContent' + postId);
+
+                    postContent.classList.add('hidden');
+                    allContent.classList.remove('hidden');
+                    this.style.display = 'none';
+                    maskerButtons.forEach(maskerButton => {
+                        if (maskerButton.getAttribute('data-post-id') === postId) {
+                            maskerButton.style.display = 'inline-block';
+                        }
+                    });
+                });
+            });
+
+            maskerButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const postId = this.getAttribute('data-post-id');
+                    const postContent = document.getElementById('postContent' + postId);
+                    const allContent = document.getElementById('allContent' + postId);
+
+                    postContent.classList.remove('hidden');
+                    allContent.classList.add('hidden');
+                    voirPlusButtons.forEach(voirPlusButton => {
+                        if (voirPlusButton.getAttribute('data-post-id') === postId) {
+                            voirPlusButton.style.display = 'inline-block';
+                        }
+                    });
+                    this.style.display = 'none';
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        function handleSearchInput() {
+            let searchInput = document.getElementById('searchInput').value.trim();
+
+            // Vérifiez si l'entrée de recherche n'est pas vide
+            if (searchInput.trim() !== '') {
+
+
+                document.getElementById('normalPostsContainer').classList.add('hidden');
+
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', '{{ route('posts.search') }}', true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector('meta[name="csrf-token"]').content);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            let data = JSON.parse(xhr.responseText);
+                            console.log(data);
+                            if (data.posts && data.posts.length > 0) {
+                                let searchResults = document.getElementById('searchResults');
+                                searchResults.innerHTML = '';
+
+                                data.posts.forEach(post => {
+                                    let postCard = `
+                                <div class="bg-white shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 mb-6">
+                                    <div class="relative">
+                                        <a href="#">
+                                            <img src="{{ asset('images/') }}/${post.image}" alt="${post.title}" class="w-full h-64 object-cover ">
+                                            <div class="absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25 hover:bg-transparent transition duration-300">
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="px-6 py-4 mb-auto">
+                                        <a href="#" class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">${post.title}</a>
+                                        <p class="text-gray-500 text-sm">${post.content}</p>
+                                    </div>
+
+                                    <div class="px-6 py-3 flex items-center justify-between bg-gray-100">
+                                        <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                                            <svg height="13px" width="13px" version="1.1" id="Layer_1"
+                                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                                xml:space="preserve">
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="ml-1">${post.created_at}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            `;
+                                    searchResults.insertAdjacentHTML('beforeend', postCard);
+                                });
+                            } else {
+                                // Affichez un message si aucun résultat n'est trouvé
+                                let searchResults = document.getElementById('searchResults');
+                                searchResults.innerHTML = '<p>Aucun résultat trouvé.</p>';
+                            }
+                        } else {
+                            console.error('Erreur : ' + xhr.status);
+                        }
+                    }
+                };
+                xhr.send('searchTerm=' + encodeURIComponent(searchInput));
+
+            } else {
+                document.getElementById('normalPostsContainer').classList.remove('hidden');
+
+                let searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = '';
+            }
+        }
+
+        // Écoutez l'événement d'entrée sur l'entrée de recherche
+        document.getElementById('searchInput').addEventListener('input', handleSearchInput);
+
+
+
+
+
+
+
+ 
+    </script> --}}
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const voirPlusButtons = document.querySelectorAll('.voir-plus');
+            const maskerButtons = document.querySelectorAll('.masker');
+
+            voirPlusButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const postId = this.getAttribute('data-post-id');
+                    const postContent = document.getElementById('postContent' + postId);
+                    const allContent = document.getElementById('allContent' + postId);
+
+                    postContent.classList.add('hidden');
+                    allContent.classList.remove('hidden');
+                    this.style.display = 'none';
+                    maskerButtons.forEach(maskerButton => {
+                        if (maskerButton.getAttribute('data-post-id') === postId) {
+                            maskerButton.style.display = 'inline-block';
+                        }
+                    });
+                });
+            });
+
+            maskerButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const postId = this.getAttribute('data-post-id');
+                    const postContent = document.getElementById('postContent' + postId);
+                    const allContent = document.getElementById('allContent' + postId);
+
+                    postContent.classList.remove('hidden');
+                    allContent.classList.add('hidden');
+                    voirPlusButtons.forEach(voirPlusButton => {
+                        if (voirPlusButton.getAttribute('data-post-id') === postId) {
+                            voirPlusButton.style.display = 'inline-block';
+                        }
+                    });
+                    this.style.display = 'none';
+                });
+            });
+
+            // Ajoutez un écouteur d'événements pour l'entrée sur l'entrée de recherche
+            document.getElementById('searchInput').addEventListener('input', function() {
+                handleSearchInput();
+            });
+
+            // Appeler handleSearchInput() pour afficher tous les posts la première fois
+            handleSearchInput();
+        });
+
+        function handleSearchInput() {
+            let searchInput = document.getElementById('searchInput').value.trim();
+
+            // Vérifiez si l'entrée de recherche n'est pas vide
+            if (searchInput.trim() !== '') {
+                document.getElementById('normalPostsContainer').classList.add('hidden');
+
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', '{{ route('posts.search') }}', true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector('meta[name="csrf-token"]').content);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            let data = JSON.parse(xhr.responseText);
+                            console.log(data);
+                            if (data.posts && data.posts.length > 0) {
+                                let searchResults = document.getElementById('searchResults');
+                                searchResults.innerHTML = '';
+
+                                data.posts.forEach(post => {
+                                    let postCard = `
+
+                                    <div  class="w-96 flex justify-center align-center mb-20 mt-20">
+
+                                    <div class="bg-white shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 mb-6">
+                                        <div class="relative">
+                                            <a href="#">
+                                                <img src="{{ asset('images/') }}/${post.image}" alt="${post.title}" class="w-full h-64 object-cover ">
+                                                <div class="absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25 hover:bg-transparent transition duration-300">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="px-6 py-4 mb-auto">
+                                            <a href="#" class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">${post.title}</a>
+                                            <p class="text-gray-500 text-sm">${post.content}</p>
+                                        </div>
+
+                                        
+
+
+                     
+
+
+
+                                        <div class="px-6 py-3 flex items-center justify-between bg-gray-100">
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                `;
+                                    searchResults.insertAdjacentHTML('beforeend', postCard);
+                                });
+                            } else {
+                                // Affichez un message si aucun résultat n'est trouvé
+                                let searchResults = document.getElementById('searchResults');
+                                searchResults.innerHTML = '<p>Aucun résultat trouvé.</p>';
+                            }
+                        } else {
+                            console.error('Erreur : ' + xhr.status);
+                        }
+                    }
+                };
+                xhr.send('searchTerm=' + encodeURIComponent(searchInput));
+            } else {
+                document.getElementById('normalPostsContainer').classList.remove('hidden');
+
+                let searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = '';
+            }
+        }
+    </script>
+
+
+
+
+
 @endsection
