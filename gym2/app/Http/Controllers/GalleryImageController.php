@@ -145,7 +145,7 @@ class GalleryImageController extends Controller
     {
         // Valider les données du formulaire
         $request->validate([
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif|', 
             // 'path' => 'required|string',
 
         ]);

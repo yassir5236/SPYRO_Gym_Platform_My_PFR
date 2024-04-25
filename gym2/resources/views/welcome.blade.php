@@ -1,87 +1,84 @@
 @extends('layout')
 
 @section('content')
-    <div class="flex items-center justify-center h-screen">
-        <div class="min-w-screen h-full bg-cover"
-            style="background-image: url('{{ asset('storage/images/wHhJHkN4ZL01PhZrny5v5MxUDmMsPaMC99c9O5eV.png') }}');">
-            <div
-                class="self-start mt-96 text-6xl font-bold text-white border border-black border-solid leading-[109px] tracking-[2.56px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[75px]">
-                <span class="text-red-600">unleash</span> your
-                <br />
+    <div class="flex items-center justify-center min-h-screen bg-cover"
+        style="background-image: url('{{ asset('storage/images/wHhJHkN4ZL01PhZrny5v5MxUDmMsPaMC99c9O5eV.png') }}');">
+        <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+            <div class="mt-24 md:mt-48 text-6xl md:text-8xl font-bold text-white text-center">
+                <span class="text-red-600">unleash</span> your<br />
                 Inner Athlete
             </div>
-
-            <div class="mt-16 w-full text-lg tracking-wide leading-8 text-white max-md:mt-10 max-md:max-w-full">
-                Get ready to sweat it out and achieve your fitness goals with our
-                high-energy fitness classes! Our classes are designed to cater to all
-                fitness levels and provide a fun and motivating environment to help you
-                reach your peak performance.
+            <div class="mt-16 md:mt-24 text-lg md:text-xl text-white text-center">
+                Get ready to sweat it out and achieve your fitness goals with our high-energy fitness classes! Our classes
+                are designed to cater to all fitness levels and provide a fun and motivating environment to help you reach
+                your peak performance.
             </div>
-
-            <div
-                class="overflow-hidden relative flex-col justify-center self-start px-2 py-5 mt-8 text-2xl bg-red-600 text-white aspect-[4.11] rounded-md w-40 max-md:px-5">
-                <a href="{{ route('register') }}">Start free trial</a>
-
+            <div class="mt-12 md:mt-16 flex justify-center">
+                <a href="{{ route('register') }}"
+                    class="py-3 px-8 bg-red-600 text-white text-lg md:text-xl font-semibold rounded-md">Start free trial</a>
             </div>
         </div>
     </div>
 
-    <div class="flex justify-center items-center mt-5 px-16 py-16 bg-stone-950 max-md:px-5">
-        <div class="flex flex-col mt-9 w-full max-w-[1200px] max-md:max-w-full">
+
+
+
+    <div class="flex justify-center items-center mt-5 px-6 md:px-16 py-8 md:py-16 bg-stone-950">
+        <div class="flex flex-col w-full max-w-4xl md:max-w-full">
             <div
-                class="self-center text-5xl font-semibold tracking-wider leading-[82.03200000000001px] text-white text-opacity-90 max-md:max-w-full max-md:text-4xl">
+                class="text-center text-3xl md:text-5xl font-semibold tracking-wider text-white text-opacity-90 md:max-w-full md:text-4xl">
                 Find what moves you
             </div>
-            <div class="mt-12 max-md:mt-10 max-md:max-w-full">
-                <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-                    <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                        <div class="flex flex-col grow text-white text-opacity-80 max-md:mt-10 max-md:max-w-full">
+            <div class="mt-8 md:mt-12">
+                <div class="flex flex-col md:flex-row md:gap-6">
+                    <div class="flex flex-col w-full md:w-6/12">
+                        <div class="flex flex-col text-white text-opacity-80">
                             <img loading="lazy" src="{{ asset('storage/images/Mask group (1).png') }}"
-                                class="w-full aspect-[1.69] max-md:max-w-full" />
-                            <div class="flex gap-5 mt-9 max-md:flex-wrap max-md:max-w-full">
-                                <div class="my-auto text-4xl tracking-wider leading-[61.52400000000001px]">
+                                class="w-full aspect-w-16/9 md:max-w-full" />
+                            <div class="mt-6">
+                                <div class="text-2xl md:text-4xl font-semibold leading-tight">
                                     GYM
                                 </div>
-                                <div class="flex-auto text-base font-light leading-6">
-                                    Expect a heart-pumping workout that will leave you feeling
-                                    energized and accomplished. Our supportive community of
-                                    like-minded individuals.
+                                <div class="mt-3 text-base font-light leading-normal">
+                                    Expect a heart-pumping workout that will leave you feeling energized and accomplished.
+                                    Our supportive community of like-minded individuals.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col ml-5 w-[17%] max-md:ml-0 max-md:w-full">
+                    <div class="flex flex-col mt-6 md:mt-0 w-full md:w-1/3">
                         <div
-                            class="overflow-hidden relative flex-col grow items-start px-5 pt-72 pb-10 text-3xl tracking-wider whitespace-nowrap aspect-[0.42] leading-[55px] text-black  text-opacity-80 w-[170px] max-md:pt-10 max-md:mt-10">
-
+                            class="overflow-hidden relative flex flex-col items-start px-5 pt-10 pb-7 text-3xl md:text-4xl tracking-wider whitespace-nowrap leading-[55px] text-black text-opacity-80">
                             <img loading="lazy" src="{{ asset('storage/images/Group 2035.png') }}"
-                                class="object-cover absolute inset-0 size-full" />
-                            Zumbaa
+                                class="object-cover w-full h-full" />
+                            <span
+                                class="absolute bottom-0 left-0 right-0 px-5 py-3 text-white bg-black bg-opacity-50">Zumba</span>
                         </div>
                     </div>
-                    <div class="flex flex-col ml-5 w-[17%] max-md:ml-0 max-md:w-full">
+                    <div class="flex flex-col mt-6 md:mt-0 w-full md:w-1/3">
                         <div
-                            class="overflow-hidden relative flex-col grow items-start px-5 pt-72 pb-10 text-3xl tracking-wider whitespace-nowrap aspect-[0.42] leading-[55px] text-black text-opacity-80 w-[170px]  max-md:pt-10 max-md:mt-10">
+                            class="overflow-hidden relative flex flex-col items-start px-5 pt-10 pb-7 text-3xl md:text-4xl tracking-wider whitespace-nowrap leading-[55px] text-black text-opacity-80">
                             <img loading="lazy" src="{{ asset('storage/images/Group 2034.png') }}"
-                                class="object-cover absolute inset-0 size-full" />
-                            youga
-                            y
+                                class="object-cover w-full h-full" />
+                            <span
+                                class="absolute bottom-0 left-0 right-0 px-5 py-3 text-white bg-black bg-opacity-50">Yoga</span>
                         </div>
                     </div>
-                    <div class="flex flex-col ml-5 w-[17%] max-md:ml-0 max-md:w-full">
+                    <div class="flex flex-col mt-6 md:mt-0 w-full md:w-1/3">
                         <div
-                            class="overflow-hidden relative flex-col grow items-start px-5 pt-72 pb-7 text-3xl tracking-wider whitespace-nowrap aspect-[0.42] leading-[55px] text-white text-opacity-80 w-[170px] max-md:pt-10 max-md:mt-10">
+                            class="overflow-hidden relative flex flex-col items-start px-5 pt-10 pb-7 text-3xl md:text-4xl tracking-wider whitespace-nowrap leading-[55px] text-white text-opacity-80">
                             <img loading="lazy" src="{{ asset('storage/images/Mask group.png') }}"
-                                class="object-cover absolute inset-0 size-full" />
-                            Martial
-                            <br />
-                            Arts
+                                class="object-cover w-full h-full" />
+                            <span
+                                class="absolute bottom-0 left-0 right-0 px-5 py-3 text-black bg-white bg-opacity-50">Martial
+                                Arts</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 
@@ -103,105 +100,78 @@
 
 
 
-    <div class="flex overflow-hidden relative flex-col items-center px-20 pt-16 mb-10  pb-9 min-h-[820px] max-md:px-5">
-        <img loading="lazy" srcset="..." class="object-cover absolute inset-0 size-full" />
-        <div class="relative w-full max-w-[1237px] max-md:max-w-full">
-            <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-                <div class="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                    <div
-                        class="flex relative flex-col grow items-start mt-24 text-base font-medium tracking-wide leading-7 text-white text-opacity-80 max-md:mt-10">
-                        <img loading="lazy" src="{{ asset('storage/images/Rectangle 13.png') }}"
-                            class="self-stretch w-full aspect-[1.43]" />
-                        <div class="flex gap-2.5 mt-7 whitespace-nowrap">
-                            <div
-                                class="shrink-0 my-auto w-2 h-2 rounded-full bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)]">
-                            </div>
-                            <div>Yoga</div>
+
+
+    
+
+
+    <div class="flex overflow-hidden relative flex-col items-center px-6 pt-16 pb-9 md:px-4 lg:px-20 lg:pt-20 lg:pb-16 min-h-[820px]">
+        <div class="relative w-full max-w-[1237px]">
+            <div class="flex flex-col md:flex-row md:gap-5">
+                <div class="flex flex-col w-full md:w-[33%]">
+                    <div class="flex relative flex-col grow items-start mt-14 md:mt-0 text-base font-medium tracking-wide leading-7 text-white text-opacity-80">
+                        <img loading="lazy" src="{{ asset('storage/images/Rectangle 13.png') }}" class="w-full aspect-w-16/9" />
+                        <div class="flex items-center mt-4">
+                            <div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF4300] to-[#FF6400]"></div>
+                            <div class="ml-2">Yoga</div>
                         </div>
-                        <div class="self-stretch mt-7 text-2xl font-semibold tracking-wide text-white text-opacity-90">
+                        <div class="mt-4 text-2xl font-semibold tracking-wide text-white text-opacity-90">
                             Bootcamp Challenge
                         </div>
-                        <div class="flex gap-2 mt-6 text-white text-opacity-90">
-                            <div class="grow">Instructor:</div>
+                        <div class="flex mt-4 text-white text-opacity-90">
+                            <div class="flex-grow">Instructor:</div>
                             <div>Robert Fox</div>
                         </div>
-                       
                     </div>
                 </div>
-                <div class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div
-                        class="flex relative flex-col grow items-start text-base font-medium tracking-wide leading-7 text-white text-opacity-90 max-md:mt-10">
-                        <div class="self-center text-5xl font-semibold tracking-wider max-md:text-4xl">
-                            Classes
+                <div class="flex flex-col w-full md:w-[33%]">
+                    <div class="flex relative flex-col grow items-start mt-14 md:mt-0 text-base font-medium tracking-wide leading-7 text-white text-opacity-80">
+                        <img loading="lazy" src="{{ asset('storage/images/Rectangle 13.png') }}" class="w-full aspect-w-16/9" />
+                        <div class="flex items-center mt-4">
+                            <div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF4300] to-[#FF6400]"></div>
+                            <div class="ml-2">Yoga</div>
                         </div>
-                        <img loading="lazy" src="{{ asset('storage/images/gal4.jpg') }}"
-                            class="self-stretch mt-14 w-full aspect-[1.43] max-md:mt-10" />
-                        <div class="flex gap-2.5 mt-7 whitespace-nowrap text-white text-opacity-80">
-                            <div
-                                class="shrink-0 my-auto w-2 h-2 rounded-full bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)]">
-                            </div>
-                            <div>Zumba</div>
-                        </div>
-                        <div class="self-stretch mt-7 text-2xl font-semibold tracking-wide">
+                        <div class="mt-4 text-2xl font-semibold tracking-wide text-white text-opacity-90">
                             Bootcamp Challenge
                         </div>
-                        <div class="flex gap-2 mt-6">
-                            <div class="grow">Instructor:</div>
-                            <div>Martial Kavani</div>
+                        <div class="flex mt-4 text-white text-opacity-90">
+                            <div class="flex-grow">Instructor:</div>
+                            <div>Robert Fox</div>
                         </div>
-                       
                     </div>
                 </div>
-                <div class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div
-                        class="flex relative flex-col grow items-start mt-24 text-base font-medium tracking-wide leading-7 text-white text-opacity-80 max-md:mt-10">
-                        <img loading="lazy" src="{{ asset('storage/images/gal7.jpg') }}"
-                            class="self-stretch w-full aspect-[1.43]" />
-                        <div class="flex gap-2.5 mt-7 whitespace-nowrap">
-                            <div
-                                class="shrink-0 my-auto w-2 h-2 rounded-full bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)]">
-                            </div>
-                            <div>Box</div>
+                <div class="flex flex-col w-full md:w-[33%]">
+                    <div class="flex relative flex-col grow items-start mt-14 md:mt-0 text-base font-medium tracking-wide leading-7 text-white text-opacity-80">
+                        <img loading="lazy" src="{{ asset('storage/images/Rectangle 13.png') }}" class="w-full aspect-w-16/9" />
+                        <div class="flex items-center mt-4">
+                            <div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF4300] to-[#FF6400]"></div>
+                            <div class="ml-2">Yoga</div>
                         </div>
-                        <div class="self-stretch mt-7 text-2xl font-semibold tracking-wide text-white text-opacity-90">
+                        <div class="mt-4 text-2xl font-semibold tracking-wide text-white text-opacity-90">
                             Bootcamp Challenge
                         </div>
-                        <div class="flex gap-2 mt-6 text-white text-opacity-90">
-                            <div class="grow">Instructor:</div>
-                            <div>Denero  Kala</div>
+                        <div class="flex mt-4 text-white text-opacity-90">
+                            <div class="flex-grow">Instructor:</div>
+                            <div>Robert Fox</div>
                         </div>
-                    
                     </div>
                 </div>
+                <!-- Repeat the above div structure for the remaining two sections -->
+            </div>
+            <div class="flex flex-col mt-6 md:mt-8 md:flex-row md:gap-5 w-full text-lg font-medium tracking-wide leading-8 text-white">
+                <div class="flex flex-1 px-0.5">
+                    <a href="{{ route('register') }}">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f06f74cfc12ff06c4b6afdbdc21e7bbbaf82a85a6ba846b5c8d4bebdb35d1227?" class="w-full h-auto" />
+                    </a>
+                </div>
+                
             </div>
         </div>
-        <div
-            class="flex relative gap-5 mt-6 w-full text-lg font-medium tracking-wide leading-8 text-white max-w-[1237px] max-md:flex-wrap max-md:max-w-full">
-            <div class="flex flex-1 gap-5 px-0.5">
-                <a href="{{route('register')}}">
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f06f74cfc12ff06c4b6afdbdc21e7bbbaf82a85a6ba846b5c8d4bebdb35d1227?"
-                    class="shrink-0 max-w-full aspect-[3.13] w-[140px]" />
-                </a>
-            </div>
-            <div class="flex flex-1 gap-5 px-px">
-                <a href="{{route('register')}}">
-                    <img loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/f06f74cfc12ff06c4b6afdbdc21e7bbbaf82a85a6ba846b5c8d4bebdb35d1227?"
-                        class="shrink-0 max-w-full aspect-[3.13] w-[140px]" />
-                    </a>
-            </div>
-            <div class="flex flex-1 gap-5 px-0.5">
-                <a href="{{route('register')}}">
-                    <img loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/f06f74cfc12ff06c4b6afdbdc21e7bbbaf82a85a6ba846b5c8d4bebdb35d1227?"
-                        class="shrink-0 max-w-full aspect-[3.13] w-[140px]" />
-                    </a>
-            </div>
-        </div>
-
     </div>
 
+
+  
+    
 
 
 
@@ -295,42 +265,5 @@
 
 
 
-    <div class="flex overflow-hidden relative flex-col items-center px-16 pt-16 pb-6  min-h-[411px] max-md:px-5">
-        <img loading="lazy" srcset="..." class="object-cover absolute inset-0 size-full" />
-        <div class="flex relative flex-col items-center w-full max-w-[1200px] max-md:max-w-full">
-            <div
-                class="text-4xl font-extrabold bg-clip-text text-red-600  bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)]">
-                SPYRO
-            </div>
-            <div
-                class="mt-12 text-xl font-medium leading-8 text-center text-white text-opacity-80 w-[876px] max-md:mt-10 max-md:max-w-full">
-                Join us today and experience the transformative power of our fitness
-                classes. Don't wait to start your fitness journey. Take the first step
-                towards a healthier, stronger you. Let's sweat, have fun, and make fitness
-                a way of life together!
-            </div>
-            <div class="flex gap-4 mt-9">
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/3aca9be230183a2a6898520776404b0331eb1332818a1bc2f8239136694eedc1?"
-                    class="shrink-0 aspect-square w-[35px]" />
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/9b20cd0d4b798f46fd0632946f2b31333a4503105cc5cce8baefe56247ab9b0a?"
-                    class="shrink-0 aspect-square w-[35px]" />
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a21e7ea4312026044cd9da9b1b10040d65a9d22e1ddc94a9aa112719b65e5ddd?"
-                    class="shrink-0 aspect-square w-[35px]" />
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/3e285806a368101f59320414abc2af9fa0ed975c2ebf6502617b0f19a4440da3?"
-                    class="shrink-0 aspect-square w-[35px]" />
-            </div>
-            <div class="shrink-0 self-stretch mt-10 h-px bg-white border border-white border-solid max-md:max-w-full">
-            </div>
-            <div class="flex gap-1.5 mt-6 text-base font-medium leading-7 text-center text-white text-opacity-70">
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/09dac7e45971ed66cf6243472a0faf4ad3d3654a6c3924264c222493411c2cea?"
-                    class="shrink-0 w-5 aspect-square" />
-                <div class="flex-auto my-auto">SPYRO 2023. All rights reserved.</div>
-            </div>
-        </div>
-    </div>
+
 @endsection
