@@ -4,10 +4,10 @@
 
 @section('content')
     <a href="{{ route('categories.create') }}"
-        class="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Créer un nouveau category</a>
+        class="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-5 ">Créer un nouveau category</a>
 
-    <div class="container ">
-        <div class="flex justify-center	 gap-7 items-center h-[70vh]">
+    <div class="container p-8 ">
+        <div class="flex flex-col items-center  justify-center  lg:flex-row lg:justify-center	 lg:gap-7 lg:items-center lg:h-[70vh]">
             @foreach ($categories as $category)
                 <div class="relative w-full max-w-[300px] mb-4 shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                     <div

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container mx-auto">
+<div class="container mx-auto p-4">
     <div class="max-w-md mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg mt-16">
         <div class="py-4 px-6">
             <h1 class="text-3xl font-bold text-white text-center">Update Product</h1>
