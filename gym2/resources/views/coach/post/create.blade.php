@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="min-h-screen  bg-black py-6 flex flex-col justify-center sm:py-12">
+    <div class="min-h-screen  bg-black py-6 flex flex-col p-10 justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-xl sm:mx-auto">
             <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-800 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
             </div>
