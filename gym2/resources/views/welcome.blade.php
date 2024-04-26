@@ -156,12 +156,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- Repeat the above div structure for the remaining two sections -->
             </div>
             <div class="flex flex-col mt-6 md:mt-8 md:flex-row md:gap-5 w-full text-lg font-medium tracking-wide leading-8 text-white">
                 <div class="flex flex-1 px-0.5">
-                    <a href="{{ route('register') }}">
-                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f06f74cfc12ff06c4b6afdbdc21e7bbbaf82a85a6ba846b5c8d4bebdb35d1227?" class="w-full h-auto" />
+                    <a href="{{ route('register') }}" class="bg-red-500 p-2 px-8 rounded ">show more
                     </a>
                 </div>
                 
