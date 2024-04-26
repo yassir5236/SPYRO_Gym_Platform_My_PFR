@@ -277,7 +277,7 @@
             @yield('content')
         </div>
 
-        <div class="flex overflow-hidden relative flex-col items-center px-16 pt-16 pb-6 min-h-[411px] max-md:px-5">
+        <div class="flex overflow-hidden relative flex-col items-center px-16 pt-16 pb-6 min-h-[411px] z-30 max-md:px-5">
             <img loading="lazy" srcset="..." class="object-cover absolute inset-0 size-full" />
             <div class="flex relative flex-col items-center w-full max-w-[1200px] max-md:max-w-full">
                 <div class="text-4xl font-extrabold bg-clip-text text-red-600 bg-[linear-gradient(90deg,#FF4300_-6.33%,#FF6400_103.92%)] text-center">
@@ -299,7 +299,7 @@
                 </div>
                 <div class="flex gap-1.5 mt-6 text-base font-medium leading-7 text-center text-white text-opacity-70">
                     <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/09dac7e45971ed66cf6243472a0faf4ad3d3654a6c3924264c222493411c2cea?" class="shrink-0 w-5 aspect-square" />
-                    <div class="flex-auto my-auto">SPYRO 2023. All rights reserved.</div>
+                    <div class="flex-auto my-auto">SPYRO 2024. All rights reserved.</div>
                 </div>
             </div>
         </div>

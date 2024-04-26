@@ -90,7 +90,7 @@
 
 
     <div
-        class="cart-sidebar fixed inset-y-0 right-0 w-96 bg-gradient-to-r from-gray-900 to-green-900  text-white shadow-lg overflow-y-auto  border p-6">
+        class="cart-sidebar fixed inset-y-0 right-0 w-96 bg-gradient-to-r from-gray-900 to-green-900  text-white shadow-lg overflow-y-auto z-40  border p-6">
         <!-- Sidebar header -->
         <div class="flex items-center justify-between mb-10 flex justify-center  p-4">
             <h2 class="text-3xl font-semibold   mt-5">Your shopping cart</h2>
@@ -155,7 +155,7 @@
             </div>
             <!-- Cart summary -->
 
-            <div class="max-w-2xl mx-auto">
+            <div class="w-3/4 mx-auto md:max-w-2xl ">
                 @if (session('cart'))
                     <div class="bg-gray-800 border  shadow-md mt-2 p-2 ">
                         <h5 class="text-2xl   font-semibold mb-4">Total</h5>

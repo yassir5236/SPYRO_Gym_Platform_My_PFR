@@ -1,4 +1,4 @@
-@extends('layout')
+{{-- @extends('layout')
 @section('content')
 
 
@@ -7,7 +7,6 @@
 background-size: cover;
 background-position: center;">
 
-    {{-- <img loading="lazy" src="{{ asset('storage/images/Rectangle 13.png') }}"> --}}
 
     <div class="flex flex-between flex-wrap justify-center gap-x-6 mt-20">
         <section class="flex flex-col justify-center antialiased text-gray-600 min-h-screen p-4  w-96 ">
@@ -258,4 +257,4 @@ background-position: center;">
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

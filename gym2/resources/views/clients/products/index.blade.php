@@ -3,30 +3,21 @@
 
 
 @section('content')
+<div class="p-6">
+
     <div class="w-full flex justify-between">
-        {{-- <form action="{{ route('indexProductClient') }}" method="GET" class="flex items-center justify-center">
-            <select name="category_id" id="category_id"
-                class="appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out">
-                <option value="">Select category</option>
-                @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
-            <button type="submit"
-                class="ml-2 bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-300 ease-in-out">Filter</button>
-        </form> --}}
 
 
 
-        {{-- <label for="categoryFilter" class=" text-sm font-medium text-gray-700">Filter by Category:</label> --}}
-        <select id="categoryFilter" class=" w-1/5 mt-1 p-2 border border-gray-300 bg-white rounded-md shadow-sm ">
+
+        <select id="categoryFilter" class=" w-2/5 md:w-1/5 mt-1 p-2 border border-gray-300 bg-white rounded-md shadow-sm ">
             <option value="" class="text-gray-900 ">All Categories</option>
             @foreach ($categories as $category)
-            <option value="{{ $category->id }}" class="text-gray-900">{{ $category->name }}</option>
+                <option value="{{ $category->id }}" class="text-gray-900">{{ $category->name }}</option>
             @endforeach
         </select>
-        
-        
+
+
 
 
         <form id="searchForm" class="flex items-center justify-center">
@@ -45,8 +36,8 @@
 
 
 
-    <div id="existingProducts" class="container mx-auto py-8 ">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div id="existingProducts" class="container mx-auto ">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ">
             @forelse ($products as $product)
                 <div class="bg-white  shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                     <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}"
@@ -91,6 +82,7 @@
     <div id="noProductsMessage" class="text-center col-span-3" style="display: none;">
         <p class="text-gray-600">No products found.</p>
     </div>
+</div>
 
 
 
@@ -149,7 +141,7 @@
                                 </div>
                             </div>
                         `;
-                        productCard = productCard.replace(':productId', product.id);
+                                productCard = productCard.replace(':productId', product.id);
 
 
                                 productsContainer.insertAdjacentHTML('beforeend', productCard);
