@@ -1,6 +1,5 @@
 <?php
 
-// namespace App\Http\Controllers;
 namespace App\Http\Controllers\Auth;
 
 
@@ -39,11 +38,10 @@ class AuthController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->role = 'user'; // ou un autre rôle par défaut
+        $user->role = 'user'; 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('imagesUsers', 'public'); 
 
-            // $imagePath = $request->file('image')->store('images');
             $user->image = $imagePath;
         }
         $user->save();
@@ -52,42 +50,19 @@ class AuthController extends Controller
     }
 
 
-    // public function login(Request $request)
-    // {
-    //     // Validation des données
-    //     $credentials = $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required',
-    //     ]);
-
-    //     // Tentative d'authentification de l'utilisateur
-    //     if (Auth::attempt($credentials)) {
-    //         // Authentification réussie, rediriger l'utilisateur vers la page de profil ou une autre page appropriée
-    //         return redirect()->intended('/trainers.profile');
-    //     }
-
-    //     // Authentification échouée, rediriger l'utilisateur vers le formulaire de connexion avec un message d'erreur
-    //     return redirect()->back()->withInput()->withErrors([
-    //         'email' => 'Les informations d\'identification fournies sont incorrectes.',
-    //     ]);
-    // }
+  
 
 
     public function login(Request $request)
     {
-        // Validation des données
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
     
-        // Tentative d'authentification de l'utilisateur
         if (Auth::attempt($credentials)) {
-            // Authentification réussie, obtenir l'utilisateur authentifié
             $user = Auth::user();
-            // dd($user->role);
     
-            // Redirection en fonction du rôle de l'utilisateur
             switch ($user->role) {
                 case 'admin':
                     return redirect()->route('admin.getStatistics');
@@ -104,7 +79,6 @@ class AuthController extends Controller
             }
         }
     
-        // Authentification échouée, rediriger l'utilisateur vers le formulaire de connexion avec un message d'erreur
         return redirect()->back()->withInput()->withErrors([
             'email' => 'Les informations d\'identification fournies sont incorrectes.',
         ]);

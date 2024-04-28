@@ -24,11 +24,7 @@ class CoachController extends Controller
         return view('coach.trainers');
     }
 
-    // public function adminCoaches()
-    // {
-    //     $coaches = User::where('role', 'coach')->get();
-    //     return view('admin.coaches.index', compact('coaches'));
-    // }
+  
 
 
     public function adminCoaches()
@@ -52,13 +48,10 @@ class CoachController extends Controller
         $coachID = auth()->user()->id;
         $clients = Client::where('coach_id', $coachID)->get();
     
-        // Parcourir chaque client pour récupérer les détails de l'utilisateur associé
         $users = [];
         foreach ($clients as $client) {
-            // Récupérer l'utilisateur associé à user_id
             $user = User::find($client->user_id);
             
-            // Ajouter les détails de l'utilisateur au tableau des utilisateurs
             $users[] = [
                 'name' => $user->name,
                 'email' => $user->email,

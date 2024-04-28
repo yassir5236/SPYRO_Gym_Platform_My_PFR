@@ -118,49 +118,22 @@ class GalleryImageController extends Controller
 
 
 
-
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'file_name' => 'required|string',
-    //         'path' => 'required|string',
-    //     ]);
-
-    //     // Enregistrement de l'image dans le système de fichiers
-    //     $imageName = time().'.'.$request->image->extension();
-    //     $request->image->move(public_path('images'), $imageName);
-
-    //     // Création d'une nouvelle instance de GalleryImage
-    //     $galleryImage = new GalleryImage();
-    //     $galleryImage->image_path = $imageName;
-    //     // Assigner d'autres données du formulaire à votre modèle GalleryImage
-
-    //     // Enregistrement de l'image dans la base de données
-    //     $galleryImage->save();
-
-    //     return redirect()->route('gallery-images.index')->with('success', 'Image ajoutée avec succès.');
-    // }
-
     public function store(Request $request)
     {
-        // Valider les données du formulaire
         $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg,gif|', 
-            // 'path' => 'required|string',
 
         ]);
 
-        // Vérifier si un fichier a été téléchargé
         if ($request->hasFile('file')) {
             $image = $request->file('file');
             $imageName = $image->getClientOriginalName();
-            $imagePath = $image->storeAs('gallery_images', $imageName, 'public'); // Enregistrer l'image dans le stockage public
+            $imagePath = $image->storeAs('gallery_images', $imageName, 'public'); 
 
-            // Créer une nouvelle instance de GalleryImage
             $galleryImage = new GalleryImage();
             $galleryImage->file_name = $imageName;
             $galleryImage->path = $imagePath;
-            $galleryImage->save(); // Enregistrer l'image dans la base de données
+            $galleryImage->save(); 
 
             return redirect()->route('gallery-images.index')->with('success', 'Image ajoutée avec succès.');
         }
@@ -225,7 +198,6 @@ class GalleryImageController extends Controller
     public function destroy(GalleryImage $galleryImage)
     {
 
-        // Supprimer l'image de la base de données
         $galleryImage->delete();
 
         return redirect()->route('gallery-images.index')->with('success', 'Image supprimée avec succès.');
