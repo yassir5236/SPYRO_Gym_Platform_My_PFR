@@ -22,7 +22,6 @@
                             <div class="mb-3 flex items-center justify-between px-1 md:items-start">
                                 <div class="mb-2">
                                     <p class="text-lg font-bold text-navy-700">{{ $category->name }}</p>
-                                    <!-- Vous pouvez afficher d'autres détails de la catégorie ici -->
                                 </div>
                             </div>
                             <div class="flex items-center justify-between md:items-center lg:justify-between">

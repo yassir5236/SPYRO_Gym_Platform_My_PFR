@@ -115,7 +115,7 @@
                                 </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    <a href="{{ route('posts.index') }}">Community</a>
+                                    <a href="{{ route('posts.indexAdmin') }}">Community</a>
                                 </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
@@ -127,7 +127,7 @@
                                 </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    <a href="{{ route('products.index') }}">Market place</a>
+                                    <a href="{{ route('products.admin') }}">Market place</a>
                                 </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
@@ -151,11 +151,11 @@
 
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    <a href="{{ route('posts.index') }}">Community</a>
+                                    <a href="{{ route('posts.indexClient') }}">Community</a>
                                 </div>
                                 <div
                                     class="pt-2 transition duration-300 ease-in-out hover:text-red-500 transform hover:scale-105">
-                                    <a href="{{ route('subscriptions.index') }}">Subscription</a>
+                                    <a href="{{ route('subscriptions.indexClient') }}">Subscription</a>
                                 </div>
 
                                 <div
@@ -261,6 +261,7 @@
                 <span class="block sm:inline">{{ session('error') }}</span>
             </div>
         @endif
+       
 
         <div class="container mx-auto flex-1 mt-8">
             @yield('content')

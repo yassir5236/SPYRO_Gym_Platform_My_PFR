@@ -4,98 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 
-// class GalleryImageController extends Controller
-// {
-   
-//     public function index()
-//     {
-//         $images = GalleryImage::all();
-//         return view('galery', compact('images'));
-//     }
-
-  
-
-
-
-//     public function create()
-//     {
-//         return view('admin.galery.create');
-//     }
-
-  
-
-
-//     public function store(Request $request)
-//     {
-//         // Validez les données du formulaire
-//         $validatedData = $request->validate([
-//             'file_name' => 'required|string',
-//             'path' => 'required|string',
-//         ]);
-
-//         // Créez une nouvelle image de la galerie
-//         GalleryImage::create($validatedData);
-
-//         return redirect()->route('gallery-images.index')
-//             ->with('success', 'Image ajoutée avec succès.');
-//     }
-
-  
-
-
-//     public function show(GalleryImage $galleryImage)
-//     {
-//         return view('gallery.show', compact('galleryImage'));
-//     }
-
-  
-
-
-//     public function edit(GalleryImage $galleryImage)
-//     {
-//         return view('gallery.edit', compact('galleryImage'));
-//     }
-
- 
-
-
-//     public function update(Request $request, GalleryImage $galleryImage)
-//     {
-//         // Validez les données du formulaire
-//         $validatedData = $request->validate([
-//             'file_name' => 'required|string',
-//             'path' => 'required|string',
-//         ]);
-
-//         // Mettez à jour les informations de l'image de la galerie
-//         $galleryImage->update($validatedData);
-
-//         return redirect()->route('gallery-images.index')
-//             ->with('success', 'Image mise à jour avec succès.');
-//     }
-
-  
-
-
-//     public function destroy(GalleryImage $galleryImage)
-//     {
-//         // Supprimez l'image de la galerie
-//         $galleryImage->delete();
-
-//         return redirect()->route('gallery-images.index')
-//             ->with('success', 'Image supprimée avec succès.');
-//     }
-// }
-
-
-
-
-
-namespace App\Http\Controllers;
-
-use App\Models\GalleryImage;
-use Illuminate\Http\Request;
-
 class GalleryImageController extends Controller
 {
 
@@ -159,38 +67,6 @@ class GalleryImageController extends Controller
     }
 
 
-
-
-    public function update(Request $request, GalleryImage $galleryImage)
-    {
-
-
-        $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            // Autres règles de validation
-        ]);
-
-        if ($request->hasFile('image')) {
-            // Supprimer l'ancienne image du système de fichiers
-            $oldImagePath = public_path('images').'/'.$galleryImage->image_path;
-            if (file_exists($oldImagePath)) {
-                unlink($oldImagePath);
-            }
-
-            // Enregistrer la nouvelle image dans le système de fichiers
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $galleryImage->image_path = $imageName;
-        }
-
-        // Mettre à jour les autres données du formulaire dans le modèle GalleryImage
-        // $galleryImage->attribut = $request->input('attribut');
-
-        // Enregistrer les modifications dans la base de données
-        $galleryImage->save();
-
-        return redirect()->route('gallery-images.index')->with('success', 'Image mise à jour avec succès.');
-    }
 
 
 

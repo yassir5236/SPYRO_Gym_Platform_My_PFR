@@ -78,15 +78,26 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         return $this->hasOne(Coach::class);
     }
 
-    // public function coach()
-    // {
-    //     return $this->belongsTo(Coach::class);
-    // }
+
 
 
     public function posts()
-{
-    return $this->hasMany(Post::class);
-}
+    {
+        return $this->hasMany(Post::class);
+    }
 
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isClient()
+    {
+        return $this->role === 'user';
+    }
+
+    public function isCoach()
+    {
+        return $this->role === 'coach';
+    }
 }
